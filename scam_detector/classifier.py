@@ -37,6 +37,8 @@ def scam_probability(text):
     return float(_load()["model"].predict_proba([clean_text(text)])[0, 1])
 
 
-def threshold():
-    """Score above which the classifier calls a message a scam (chosen in train.py)."""
-    return _load()["threshold"]
+def thresholds():
+    """(cutoff, high_cutoff) chosen in train.py: above cutoff the model finds the message
+    suspicious; above high_cutoff it is confident on its own."""
+    saved = _load()
+    return saved["threshold"], saved["high_threshold"]

@@ -32,6 +32,8 @@ SEED = 20261008
 # Missed scams are worse than false alarms: accept up to this share of legit messages
 # being flagged, and set the cutoff as low as that allows.
 MAX_FALSE_ALARM_RATE = 0.10
+# A stricter cutoff where the model alone is trusted to say "looks like a scam"
+MAX_FALSE_ALARM_RATE_HIGH = 0.02
 
 
 def load_training_data():
@@ -67,10 +69,17 @@ def make_model():
     )
 
 
-def choose_threshold(y, prob):
-    """Lowest cutoff that keeps false alarms at or below MAX_FALSE_ALARM_RATE."""
+def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
+    """Lowest cutoff that keeps false alarms at or below max_false_alarms."""
     legit = np.sort(prob[y == 0])
-    return float(legit[int(np.ceil((1 - MAX_FALSE_ALARM_RATE) * len(legit))) - 1])
+    return float(legit[int(np.ceil((1 - max_false_alarms) * len(legit))) - 1])
+
+
+def out_of_fold_probabilities(df, groups):
+    """Each message scored by a model that never saw it (or its template) in training."""
+    cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEED)
+    return cross_val_predict(make_model(), df.clean, df.y, groups=groups, cv=cv,
+                             method="predict_proba")[:, 1]
 
 
 def report(df, prob, threshold):
@@ -111,17 +120,18 @@ def main():
     print(f"Training data: {len(df)} messages, {df.y.sum()} scams "
           f"({df.groupby('origin').size().to_dict()}); {len(set(groups))} template groups")
 
-    cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEED)
-    prob = cross_val_predict(make_model(), df.clean, df.y, groups=groups, cv=cv,
-                             method="predict_proba")[:, 1]
+    prob = out_of_fold_probabilities(df, groups)
     threshold = choose_threshold(df.y.values, prob)
+    high_threshold = choose_threshold(df.y.values, prob, MAX_FALSE_ALARM_RATE_HIGH)
     report(df, prob, threshold)
+    print(f"High-confidence cutoff (max {MAX_FALSE_ALARM_RATE_HIGH:.0%} false alarms): {high_threshold:.2f}")
     show_mistakes(df, prob, threshold)
 
     model = make_model().fit(df.clean, df.y)
     show_top_features(model)
     MODEL_PATH.parent.mkdir(exist_ok=True)
-    joblib.dump({"model": model, "threshold": threshold}, MODEL_PATH)
+    joblib.dump({"model": model, "threshold": threshold, "high_threshold": high_threshold},
+                MODEL_PATH)
     print(f"\nSaved {MODEL_PATH}")
 
 
