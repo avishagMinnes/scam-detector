@@ -20,7 +20,7 @@ SEED = 20261008
 
 # Decisions for the sampled spam, keyed by UCI row number (1-based line in the file)
 SCAM_PRIZE = [1986, 2671, 3422, 4207, 5295, 3261, 3299, 9, 4902, 3894, 5013, 5471,
-              3969, 593, 3820, 4787, 1106, 1467, 3829, 2643]
+              3969, 4846, 593, 3820, 4787, 1106, 1467, 3829, 2643]
 SCAM_OTHER = {
     4298: "'Urgent message waiting', premium-rate callback",
     5029: "Fake account statement with points to claim via premium number",
