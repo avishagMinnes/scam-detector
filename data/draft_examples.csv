@@ -1,0 +1,17 @@
+﻿id,text,language,label,scam_type,source,date_received,notes
+he-d01,"דואר ישראל: החבילה שלך ממתינה במרכז המיון. המסירה נכשלה עקב כתובת חסרה. לעדכון הכתובת ותשלום דמי משלוח בסך 4.90 ש""ח: https://israelpost-track.top/il",he,scam,delivery,draft: Directorate warning #1,,Small fee + lookalike domain (not israelpost.co.il)
+he-d02,"כביש 6: נמצא חוב פתוח על שמך בסך 38.70 ש""ח. יש להסדיר את התשלום עוד היום כדי להימנע מקנס פיגורים: https://kvish6-pay.com/gov",he,scam,government_impersonation,draft: Directorate warning #2,,Debt + deadline + payment link; may appear in the real GOV.IL thread
+he-d03,פיקוד העורף: גרסה חדשה של אפליקציית ההתרעות זמינה. יש להתקין את העדכון כדי להמשיך לקבל התרעות: https://oref-update.app/download,he,scam,government_impersonation,draft: Directorate warning #3,,Install from a link = malware risk
+he-d04,"היי, שלחתי לך בטעות קוד של 6 ספרות בSMS. זה ממש דחוף, תוכל לשלוח לי אותו?",he,scam,account_security,draft: Directorate warning #4,,WhatsApp takeover: asks for the code; no link at all
+he-d05,"היי אמא, זה המספר החדש שלי, הטלפון נפל לי למים. תשמרי אותו. את יכולה לעשות לי טובה? אני צריך להעביר תשלום דחוף ואין לי גישה לאפליקציה של הבנק",he,scam,family_impersonation,draft: Directorate warning #4,,New number + urgent money; no link
+he-d06,"לקוח יקר, זוהתה פעילות חריגה בכרטיס האשראי שלך והכרטיס נחסם זמנית. לביטול החסימה יש לאמת את פרטיך: https://card-secure-verify.net",he,scam,bank_impersonation,draft: Directorate warning #5,,Fear + verify details via a link
+he-d07,"הצטרפו לקבוצה של ד""ר [NAME], מומחה לשוק ההון. 87% מהמשתתפים הרוויחו מעל 30% בחודש האחרון. מספר המקומות מוגבל, הצטרפו עכשיו!",he,scam,investment,draft: Directorate warning #6,,Unrealistic returns + scarcity; group link removed
+he-d08,"מזל טוב! זכית בשובר בשווי 1,000 ש""ח ברשת הסופרמרקטים. למימוש ההטבה יש לשלם דמי טיפול של 9.90 ש""ח: https://gift-il-winner.shop",he,scam,prize,draft: synthetic,,Prize you never entered + fee
+he-d09,דואר ישראל: דבר דואר RR123456789IL ממתין לך בסניף [BRANCH] עד 15/10. לפרטים: israelpost.co.il,he,legit,none,draft: synthetic,,"Hard case: delivery notice, official domain, no payment"
+he-d10,"קוד האימות שלך הוא 482913. אין למסור את הקוד לאף אחד, כולל נציגי הבנק.",he,legit,none,draft: synthetic,,Hard case: contains a code but tells you NOT to share it
+he-d11,"אמא, סיימתי אימון, אגיע הביתה בשבע. צריך לקנות משהו בדרך?",he,legit,none,draft: synthetic,,Hard case: 'Mom' message with no request for money
+en-d01,USPS: Your package could not be delivered due to an incomplete address. Please update within 12 hours: https://usps-redelivery-info.com,en,scam,delivery,draft: synthetic,,Deadline + lookalike domain
+en-d02,ALERT: Your account has been suspended due to unusual activity. Verify your identity now to avoid permanent closure: https://secure-login-bank.co,en,scam,bank_impersonation,draft: synthetic,,Threat + verify via a link
+en-d03,Hi! We're hiring remote part-time staff. Earn $300-$800/day just liking videos. Reply YES to continue on WhatsApp.,en,scam,job_offer,draft: synthetic,,Too-good pay + move to another app
+en-d04,"Bank alert: A $52.10 card purchase at [MERCHANT] was approved. If you don't recognize it, call the number on the back of your card. Do not reply to this text.",en,legit,none,draft: synthetic,,"Hard case: bank alert, but sends you to your card, not a link"
+en-d05,Your order #[ORDER] has shipped and will arrive Thursday. Track it in the app.,en,legit,none,draft: synthetic,,Hard case: delivery update with no link or payment
