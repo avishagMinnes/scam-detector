@@ -8,3 +8,4 @@ __pycache__/
 # Real messages from family and friends: keep out of Git, so the repo can go public later
 data/labeled_messages.csv
 data/review_my_phone.csv
+.pytest_cache/
