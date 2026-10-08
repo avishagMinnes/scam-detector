@@ -6,4 +6,5 @@
 - Done: split, anonymized and pre-labeled 94 messages from my own phone (data/review_my_phone.csv)
 - Done: labeled my phone messages; test set now 96 real messages (28 scam, 68 legit) in data/labeled_messages.csv
 - Learned: SMS inbox has no 'Hi Mom', investment or prize scams; those need to come from WhatsApp / family
-- Next:
+- Done: set up Git; locked the test set (data/split.csv): 32 test / 66 train, 9 test scams
+- Next: Phase 2 week 4 - extract.py, relabel a UCI sample
