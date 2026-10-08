@@ -12,7 +12,7 @@ signs and what to do. Shown to 3–5 people.
 |----------|--------|-----|
 | Language | Python 3.12 | Already installed; scikit-learn is free and runs on any CPU |
 | Main detector | TF-IDF + logistic regression (scikit-learn) | The new plan's baseline. Trains in seconds, free to run, easy to understand |
-| Text features | Character n-grams (2–5 characters), not whole words | Hebrew glues prefixes onto words (ו, ה, ב, ל, ש): "החבילה", "לחבילה" and "בחבילה" are different words but share "חביל". Character n-grams also catch link fragments like `.ru` and `bit.ly` |
+| Text features | Words and word pairs | **Changed after testing.** Character n-grams seemed better for Hebrew prefixes (ו, ה, ב, ל, ש), but in cross-validation words won on every measure (see `train/compare_features.py`). Worth re-testing once there is more Hebrew data |
 | Warning signs | Rules (plain Python), not an LLM | Free, instant, and always explainable: "asks for a code", "link domain isn't gov.il" |
 | Explanations | Templates first; Gemini free tier optional, later | Templates built from the rules are enough for a first version. Gemini only with personal details masked first |
 | Web app | Streamlit | A page in ~30 lines; deploys free on Hugging Face Spaces in Phase 4 |
