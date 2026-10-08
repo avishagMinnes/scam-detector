@@ -13,3 +13,4 @@ data/review_my_phone.csv
 data/external/
 # Trained models contain words from the private messages: rebuild with train/train.py
 models/
+.claude/
