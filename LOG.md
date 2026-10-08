@@ -8,4 +8,6 @@
 - Learned: SMS inbox has no 'Hi Mom', investment or prize scams; those need to come from WhatsApp / family
 - Done: set up Git; locked the test set (data/split.csv): 32 test / 66 train, 9 test scams
 - Done: extract.py (links, phones, amounts) with tests; relabeled 112 UCI English messages for training (28 scam, 84 legit)
-- Next: train.py - TF-IDF + logistic regression baseline
+- Done: baseline model (train/train.py). Word features beat character n-grams in grouped CV (AUC 0.85 vs 0.80; real Hebrew 0.84 vs 0.73), so I switched. Cutoff 0.38 (max 10% false alarms): CV recall 75% overall, 67% on real messages
+- Learned: the model leans on 'call + phone number' from the old UK data and on Hebrew function words (את, של), because English legit is personal chat while Hebrew legit is marketing. Misses fake-government and bank alerts with no obvious words; rules must cover those
+- Next: rules.py (warning signs), then detector.py and the Streamlit page
