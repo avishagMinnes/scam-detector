@@ -9,3 +9,5 @@ __pycache__/
 data/labeled_messages.csv
 data/review_my_phone.csv
 .pytest_cache/
+# Downloaded datasets: re-download instead of committing
+data/external/
