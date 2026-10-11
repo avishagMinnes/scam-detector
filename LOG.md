@@ -33,4 +33,7 @@
   DictaBERT reader: AUC real 0.87, caught 45%
   average TF-IDF + AlephBERT: AUC real 0.93, caught 77%; legit flagged 9% for all
 - Learned: no single reader beats TF-IDF on AUC, but averaging the two helps (they make different mistakes). Only 22 real scams, so 77% vs 59% is 17 vs 13 messages; the blend partner was picked on the same data, so slightly optimistic. Cost: ~0.2 s per message on CPU, ~500 MB model, PyTorch in the server
-- Next: decide whether to adopt the blend (measure it inside the full detector with rules first); WhatsApp request to family/friends
+- Done: same comparison inside the FULL detector (model + rules), real training messages, out-of-fold:
+  TF-IDF: scams flagged 17/22 (12 high); AlephBERT: 20/22 (13 high); DictaBERT: 14/22; average TF-IDF+AlephBERT: 18/22 (14 high). Legit flagged 7/67 (1 high) for all
+- Learned: inside the detector AlephBERT alone is best: it catches the cannabis/drug ads and the war-donation and Iranian messages that TF-IDF misses (rules don't cover them). Difference is 3 messages
+- Next: decide whether to switch the app to AlephBERT

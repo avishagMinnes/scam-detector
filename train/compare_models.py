@@ -111,6 +111,34 @@ def main():
     print("\n'real scams caught' / 'real legit flagged' use the same cutoff rule as the app "
           "(max 10% false alarms on real training messages).")
 
+    with_rules(df, probs)
+
+
+def with_rules(df, probs):
+    """Each model score inside the full detector (model + warning-sign rules), on real
+    training messages, with cutoffs chosen exactly as train.py does."""
+    from scam_detector.detector import HIGH, LOW, combine
+    from scam_detector.rules import check
+    from train import MAX_FALSE_ALARM_RATE_HIGH
+
+    y = df.y.values
+    real = df.origin.isin(CUTOFF_ORIGINS).values
+    signs = [check(t) for t in df.text]
+    rows = []
+    for name, p in probs.items():
+        cut = choose_threshold(y[real], p[real])
+        high = choose_threshold(y[real], p[real], MAX_FALSE_ALARM_RATE_HIGH)
+        level = np.array([combine(pi, cut, high, s, r) for pi, (s, r) in zip(p, signs)])
+        sc, lg = real & (y == 1), real & (y == 0)
+        rows.append({"model inside detector": name,
+                     "scams flagged": f"{(level[sc] != LOW).sum()} of {sc.sum()}",
+                     "scams as high": int((level[sc] == HIGH).sum()),
+                     "legit flagged": f"{(level[lg] != LOW).sum()} of {lg.sum()}",
+                     "legit as high": int((level[lg] == HIGH).sum()),
+                     "missed": ", ".join(df.id[sc & (level == LOW)])})
+    print("\nFULL DETECTOR (model + rules), real training messages:")
+    print(pd.DataFrame(rows).set_index("model inside detector").to_string())
+
 
 if __name__ == "__main__":
     main()
