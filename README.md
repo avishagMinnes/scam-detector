@@ -39,3 +39,10 @@ docker run --rm -p 8080:8080 scam-detector     # then open http://localhost:8080
 ```
 The image contains only the app, the page, the draft examples and the AlephBERT model
 (see `.dockerignore`): never the private messages or the TF-IDF model.
+## Cloud (Google Cloud Run, private)
+Project `scam-detector-511311`, region `us-central1`, gcloud configuration `scam-detector`
+(personal account; the default gcloud configuration is left alone).
+```
+powershell -File deploy\deploy.ps1      # build, push, deploy
+```
+The service needs a login (anonymous requests get 403). Max 1 instance, 0 when idle.
