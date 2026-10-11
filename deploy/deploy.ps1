@@ -1,4 +1,5 @@
-# Build the image, push it to Artifact Registry and deploy it to Cloud Run (private).
+# Build the image, push it to Artifact Registry and roll it out on Cloud Run.
+# The cloud setup itself (service settings, repository, APIs) is in infra\ (Terraform).
 #
 # Uses the separate gcloud configuration "scam-detector" (personal account), never the
 # default one. Run from the project folder:   powershell -File deploy\deploy.ps1
@@ -29,8 +30,7 @@ docker push "$Image`:$Tag"
 if ($LASTEXITCODE) { throw "push failed" }
 
 Write-Host "== deploy"
-# Private (no anonymous access); scales to zero when idle; never more than 1 copy
-& $Gcloud run deploy scam-detector "--image=$Image`:$Tag" "--region=$Region" `
-    --no-allow-unauthenticated --min-instances=0 --max-instances=1 `
-    --memory=2Gi --cpu=1 --cpu-boost --concurrency=4 --timeout=60 --port=8080 $Config
+# Only the image changes here. All service settings (private, scaling, memory...)
+# live in infra\main.tf and are changed with infra\tf.ps1.
+& $Gcloud run services update scam-detector "--image=$Image`:$Tag" "--region=$Region" $Config
 if ($LASTEXITCODE) { throw "deploy failed" }

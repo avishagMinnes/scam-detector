@@ -14,3 +14,9 @@ data/external/
 # Trained models contain words from the private messages: rebuild with train/train.py
 models/
 .claude/
+# Terraform: local state and plugins stay out of Git (state lists cloud resource details)
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/*.tfplan
+infra/*_plan

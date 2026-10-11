@@ -43,6 +43,10 @@ The image contains only the app, the page, the draft examples and the AlephBERT 
 Project `scam-detector-511311`, region `us-central1`, gcloud configuration `scam-detector`
 (personal account; the default gcloud configuration is left alone).
 ```
-powershell -File deploy\deploy.ps1      # build, push, deploy
+powershell -File deploy\deploy.ps1      # build, push, roll out a new image
+powershell -File infra\tf.ps1 plan      # cloud setup (Terraform): see differences
+powershell -File infra\tf.ps1 apply     # cloud setup (Terraform): apply changes
 ```
+To open the private service in a browser:
+`gcloud run services proxy scam-detector --region=us-central1 --port=8090 --configuration=scam-detector`, then http://localhost:8090
 The service needs a login (anonymous requests get 403). Max 1 instance, 0 when idle.
