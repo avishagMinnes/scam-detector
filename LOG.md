@@ -15,4 +15,8 @@
 - Done: Streamlit page (app.py): paste, one-click check, colored card, RTL for Hebrew, examples from drafts, links shown as text only, no storage. Tested Hebrew/English, desktop/phone. Pinned requirements.txt + .venv
 - Done: replaced Streamlit with FastAPI (api.py) + own Hebrew-first phone page (web/index.html): light/dark, paste button, examples, results via textContent only. 51 tests
 - Done: new real scam he-s003 (fake police traffic fine, iMessage from softbank.jp, wj-gov.top) -> train via add_to_split.py. New rule reply_to_enable_link (iPhone link-unblock trick); court/license threats. 54 tests
-- Next: Week 7 - run the locked test set once; show the page to 3-5 people
+- PHASE 2 BASELINE on locked test set (32 msgs: 9 scam, 23 legit), results/test_2026-10-11.json:
+  combined: scams flagged 6/9 (95% range 35-88%), 3 as high; legit flagged 11/23 (48%), 4 as high
+  model only: 3/9 scams, 7/23 legit; rules only: 4/9 scams, 7/23 legit
+- Learned: false alarms far above cross-validation (13%). 7 of 11 come from the model: its cutoff was chosen on training data where most legit messages are easy English chat, so it is too low for Hebrew marketing. Rules: payment_via_link and install_from_link fire on real marketing. Not tuned on test messages
+- Next: show the page to 3-5 people; Phase 3 - choose cutoffs on Hebrew real data, more Hebrew legit everyday messages
