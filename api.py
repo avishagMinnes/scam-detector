@@ -9,6 +9,7 @@ GET  /              the page in web/
 
 Messages are analyzed in memory and never stored or logged.
 """
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 import pandas as pd
@@ -23,7 +24,15 @@ ROOT = Path(__file__).resolve().parent
 MAX_CHARS = 5000
 EXAMPLE_IDS = ["he-d01", "he-d04", "he-d05", "he-d09", "he-d10", "en-d01"]
 
-app = FastAPI(title="Scam message checker", docs_url=None, redoc_url=None)
+@asynccontextmanager
+async def lifespan(app):
+    # Load the model at startup, so the first visitor doesn't wait ~20 s for AlephBERT
+    if classifier.MODEL_PATH.exists():
+        classifier.warm_up()
+    yield
+
+
+app = FastAPI(title="Scam message checker", docs_url=None, redoc_url=None, lifespan=lifespan)
 
 
 class CheckRequest(BaseModel):

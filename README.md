@@ -25,8 +25,9 @@ Personal project: built on my own time and equipment.
 ## Run it
 ```
 python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python train\train.py          # trains models/baseline.joblib (needs the private data files)
+.venv\Scripts\python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+.venv\Scripts\python train\train.py          # trains models/alephbert.joblib + baseline.joblib (needs the private data files; first run downloads AlephBERT, ~500 MB)
 .venv\Scripts\python -m uvicorn api:app --port 8000  # then open http://localhost:8000
 .venv\Scripts\python -m pytest tests          # run the tests
 ```
+The app uses the AlephBERT model by default. To use the older word-count model instead, set `SCAM_MODEL=tfidf` before starting the server.

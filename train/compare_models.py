@@ -87,7 +87,10 @@ def main():
     df = load_training_data()
     groups = template_groups(df)
     cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEED)
-    texts = df.text.tolist()   # readers get the original text (they handle Hebrew themselves)
+    # readers get the text as written, minus the [NAME]-style placeholders (they appear
+    # mostly in real legit messages, so they'd be an unfair hint)
+    from scam_detector.classifier import reader_text
+    texts = df.text.map(reader_text).tolist()
     print(f"Training data: {len(df)} messages, {df.y.sum()} scams\n")
 
     results, probs = [], {}

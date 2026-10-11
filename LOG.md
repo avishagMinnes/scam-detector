@@ -36,4 +36,7 @@
 - Done: same comparison inside the FULL detector (model + rules), real training messages, out-of-fold:
   TF-IDF: scams flagged 17/22 (12 high); AlephBERT: 20/22 (13 high); DictaBERT: 14/22; average TF-IDF+AlephBERT: 18/22 (14 high). Legit flagged 7/67 (1 high) for all
 - Learned: inside the detector AlephBERT alone is best: it catches the cannabis/drug ads and the war-donation and Iranian messages that TF-IDF misses (rules don't cover them). Difference is 3 messages
-- Next: decide whether to switch the app to AlephBERT
+- Done: removed he-p092 (user's decision; was training). Switched the app to the AlephBERT reader (scam_detector/embedder.py, pinned model revision); TF-IDF kept as fallback (SCAM_MODEL=tfidf). Readers now get text without [NAME]-style placeholders (they were an unfair hint). Full detector, real training msgs (out-of-fold): scams flagged 19/21 (14 high), legit 7/67 (1 high). Cutoffs 0.56 / 0.83
+- Cost: model loads in ~20 s at server start (done at startup, not on first visit), then ~0.1-0.2 s per message. Loads offline when already downloaded
+- Note: AlephBERT is a Hebrew model; English messages lean more on the rules
+- Next: WhatsApp request to family/friends; re-run test set once test scams reach ~20

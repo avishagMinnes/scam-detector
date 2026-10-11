@@ -1,4 +1,8 @@
-"""Train the baseline scam classifier: TF-IDF (words) + logistic regression.
+"""Train the scam classifier: AlephBERT reader (default) or TF-IDF words, + logistic regression.
+
+Run: python train/train.py            # trains both, app uses SCAM_MODEL (default alephbert)
+     python train/train.py tfidf      # only one kind
+
 
 Uses TRAINING data only (the locked test set is never read here):
   - real messages marked "train" in data/split.csv
@@ -8,9 +12,10 @@ Uses TRAINING data only (the locked test set is never read here):
     because famous published campaigns don't represent what people actually receive)
 
 Steps: grouped cross-validation, choose the cutoff, show mistakes and what the model
-relies on, then train on all training data and save models/baseline.joblib.
-Why words and not characters: see train/compare_features.py.
+relies on, then train on all training data and save models/<kind>.joblib.
+Why words and not characters: train/compare_features.py. Why AlephBERT: train/compare_models.py.
 """
+import hashlib
 import sys
 from pathlib import Path
 
@@ -24,10 +29,11 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.model_selection import StratifiedGroupKFold, cross_val_predict
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from scam_detector.classifier import MODEL_PATH, clean_text  # noqa: E402
+from scam_detector.classifier import MODEL_FILES, MODEL_KIND, clean_text, reader_text  # noqa: E402
 
 DATA = ROOT / "data"
 SEED = 20261008
@@ -69,12 +75,31 @@ def template_groups(df, threshold=0.6):
     return groups
 
 
-def make_model():
+def make_model(kind="tfidf"):
+    if kind == "alephbert":
+        return make_pipeline(StandardScaler(),
+                             LogisticRegression(class_weight="balanced", C=0.05, max_iter=5000))
     return make_pipeline(
         TfidfVectorizer(analyzer="word", ngram_range=(1, 2), sublinear_tf=True,
                         token_pattern=r"(?u)\b\w+\b"),
         LogisticRegression(class_weight="balanced", C=10, max_iter=2000),
     )
+
+
+def features(df, kind="tfidf"):
+    """TF-IDF takes cleaned text; AlephBERT takes meaning vectors (cached on disk)."""
+    if kind != "alephbert":
+        return df.clean
+    from scam_detector import embedder
+    texts = df.text.map(reader_text).tolist()
+    key = hashlib.sha256(("\n\x00".join(texts) + embedder.REVISION).encode()).hexdigest()[:16]
+    path = ROOT / "models" / "embeddings" / f"alephbert_{key}.npy"
+    if path.exists():
+        return np.load(path)
+    vectors = embedder.embed(texts)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.save(path, vectors)
+    return vectors
 
 
 def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
@@ -83,10 +108,10 @@ def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
     return float(legit[int(np.ceil((1 - max_false_alarms) * len(legit))) - 1])
 
 
-def out_of_fold_probabilities(df, groups):
+def out_of_fold_probabilities(df, groups, kind=MODEL_KIND):
     """Each message scored by a model that never saw it (or its template) in training."""
     cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEED)
-    return cross_val_predict(make_model(), df.clean, df.y, groups=groups, cv=cv,
+    return cross_val_predict(make_model(kind), features(df, kind), df.y, groups=groups, cv=cv,
                              method="predict_proba")[:, 1]
 
 
@@ -122,13 +147,9 @@ def show_top_features(model, n=20):
     print("Words pushing towards LEGIT:", [names[i] for i in order[:n]])
 
 
-def main():
-    df = load_training_data()
-    groups = template_groups(df)
-    print(f"Training data: {len(df)} messages, {df.y.sum()} scams "
-          f"({df.groupby('origin').size().to_dict()}); {len(set(groups))} template groups")
-
-    prob = out_of_fold_probabilities(df, groups)
+def train_kind(df, groups, kind):
+    print(f"\n######## {kind} ########")
+    prob = out_of_fold_probabilities(df, groups, kind)
     pick = df.origin.isin(CUTOFF_ORIGINS).values
     threshold = choose_threshold(df.y.values[pick], prob[pick])
     high_threshold = choose_threshold(df.y.values[pick], prob[pick], MAX_FALSE_ALARM_RATE_HIGH)
@@ -137,12 +158,24 @@ def main():
           f"confident > {high_threshold:.2f} (max {MAX_FALSE_ALARM_RATE_HIGH:.0%} false alarms)")
     show_mistakes(df, prob, threshold)
 
-    model = make_model().fit(df.clean, df.y)
-    show_top_features(model)
-    MODEL_PATH.parent.mkdir(exist_ok=True)
-    joblib.dump({"model": model, "threshold": threshold, "high_threshold": high_threshold},
-                MODEL_PATH)
-    print(f"\nSaved {MODEL_PATH}")
+    model = make_model(kind).fit(features(df, kind), df.y)
+    if kind == "tfidf":
+        show_top_features(model)
+    path = MODEL_FILES[kind]
+    path.parent.mkdir(exist_ok=True)
+    joblib.dump({"kind": kind, "model": model, "threshold": threshold,
+                 "high_threshold": high_threshold}, path)
+    print(f"\nSaved {path}")
+
+
+def main():
+    df = load_training_data()
+    groups = template_groups(df)
+    print(f"Training data: {len(df)} messages, {df.y.sum()} scams "
+          f"({df.groupby('origin').size().to_dict()}); {len(set(groups))} template groups")
+    kinds = [a for a in sys.argv[1:] if a in MODEL_FILES] or list(MODEL_FILES)
+    for kind in kinds:
+        train_kind(df, groups, kind)
 
 
 if __name__ == "__main__":
