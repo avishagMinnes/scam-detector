@@ -29,11 +29,23 @@ _DONT_SHARE = _any(r"אין למסור|אל תמסור|לא למסור|אין ל
 
 _INSTALL = _any(r"להתקין|התקינו|התקן|להוריד|הורידו|להורדת|\binstall|\bdownload")
 _APP = _any(r"אפליקצי|יישומון|\bapp\b|application|עדכון|\bupdate\b|גרסה|version")
+# Scams *require* an install or update ("you must install the update to keep getting
+# alerts"); marketing *invites* you ("download our app").
+_INSTALL_REQUIRED = _any(r"(יש|נא|חובה|עליך|יש לך) (להתקין|להוריד|לעדכן)|עדכון (חובה|חירום|אבטחה|דחוף)|"
+                         r"גרסה חדשה|כדי להמשיך|על מנת להמשיך|ללא העדכון|"
+                         r"must (install|update|download)|required (update|install)|update required|"
+                         r"security update|new version|to continue (receiving|using)")
 _APP_STORES = {"play.google.com", "apps.apple.com"}
 
 # (?<![א-ת]) = not inside a longer Hebrew word: "אקדמי " must not match "דמי ", "רחוב" not "חוב"
-_PAYMENT = _any(r"(?<![א-ת])[והבלמש]?חוב(?![הר])|לשלם|תשלום|להסדיר|הסדרת|(?<![א-ת])[והבלמש]?דמי |עמלת|קנס|"
-                r"\bpay\b|payment|\bdebt\b|\bfee\b|overdue|\bcharge")
+# A demand to pay: a debt, fine or fee, or a direct order to pay. Marketing that merely
+# mentions payment ("payment methods", "pay in installments") doesn't count.
+_DEBT = _any(r"(?<![א-ת])[והבלמש]?חוב(?![הר])|(?<![א-ת])[והבלמש]?דמי |עמלת|קנס|"
+             r"\bdebt\b|\bfee\b|\bfine\b|overdue|outstanding (balance|amount)|penalty")
+_PAY_ORDER = _any(r"(יש|נא|חובה|עליך|יש לך) (לשלם|להסדיר|לבצע (את )?התשלום|להשלים (את )?התשלום)|"
+                  r"להסדרת (ה)?(חוב|תשלום)|לתשלום (ה)?(חוב|קנס|יתרה)|שלמו (עכשיו|כעת|היום|מיד)|"
+                  r"please pay|pay (now|today|immediately|the (amount|fine|fee))|settle (your|the)|"
+                  r"complete (your|the) payment")
 _FREE = _any(r"ללא תשלום|ללא עלות|ללא התחייבות|בחינם|free of charge|no charge|\bfree\b")
 
 _VERIFY = _any(r"לאמת|אימות|אמתו|עדכן את|לעדכן|עדכנו|להזין|הזינו|\bverify|confirm your|update your|validate")
@@ -139,11 +151,18 @@ def check(text, found=None):
 
     store_only = links and all(l["host"] in _APP_STORES for l in links)
     if _INSTALL.search(text) and _APP.search(text) and links and not store_only:
-        add(_rule("install_from_link", STRONG,
-                  "מבקשים להתקין אפליקציה מקישור, לא מחנות האפליקציות",
-                  "Asks you to install an app from a link, not from an app store",
-                  "התקינו אפליקציות רק מ-Google Play או App Store, אף פעם מקישור בהודעה.",
-                  "Only install apps from Google Play or the App Store, never from a message link."))
+        if _INSTALL_REQUIRED.search(text):
+            add(_rule("install_from_link", STRONG,
+                      "דורשים להתקין או לעדכן אפליקציה מקישור, לא מחנות האפליקציות",
+                      "Requires you to install or update an app from a link, not from an app store",
+                      "התקינו ועדכנו אפליקציות רק מ-Google Play או App Store, אף פעם מקישור בהודעה.",
+                      "Only install or update apps from Google Play or the App Store, never from a message link."))
+        else:
+            add(_rule("app_download_link", MEDIUM,
+                      "מציעים להוריד אפליקציה דרך קישור",
+                      "Offers an app download through a link",
+                      "אם רוצים את האפליקציה, חפשו אותה בעצמכם ב-Google Play או App Store.",
+                      "If you want the app, search for it yourself in Google Play or the App Store."))
 
     for link in links:
         brand = _lookalike(link)
@@ -162,7 +181,8 @@ def check(text, found=None):
                   f"The link goes to a .{risky[0]['tld']} site, a domain ending common in scams",
                   "אל תלחצו על הקישור.", "Don't open the link."))
 
-    if _PAYMENT.search(_FREE.sub(" ", text)) and links:
+    unfree = _FREE.sub(" ", text)
+    if (_DEBT.search(unfree) or _PAY_ORDER.search(unfree)) and links:
         add(_rule("payment_via_link", STRONG,
                   "דורשים תשלום או הסדרת חוב דרך קישור",
                   "Asks you to pay or settle a debt through a link",

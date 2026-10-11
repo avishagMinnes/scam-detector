@@ -66,6 +66,31 @@ def test_court_and_license_threats():
 
 # --- real messages that must NOT get warning signs ------------------------
 
+def test_payment_demands_still_caught():
+    assert "payment_via_link" in ids("קיים חוב פתוח על שמך, להסדרת החוב: https://pay-now.xyz")
+    assert "payment_via_link" in ids("נותר לתשלום קנס חנייה https://fines.example.com")
+    assert "payment_via_link" in ids("יש לשלם את היתרה עד הערב https://example.com/p")
+    assert "payment_via_link" in ids("Please pay the outstanding amount: https://example.com/p")
+
+
+def test_marketing_that_mentions_payment():
+    assert "payment_via_link" not in ids("אפשר לשלם בכל אמצעי התשלום באתר https://shop.example.co.il")
+    assert "payment_via_link" not in ids("Pay the balance in 12 monthly installments. https://shop.example.com")
+    assert "payment_via_link" not in ids("התשלום שלך התקבל, תודה! לקבלה: https://shop.example.co.il/r")
+
+
+def test_app_invitation_is_only_medium():
+    signs, _ = check("האפליקציה החדשה שלנו כבר כאן! הורידו עכשיו https://example.co.il/app")
+    found = {s["id"]: s["strength"] for s in signs}
+    assert found.get("app_download_link") == "medium"
+    assert "install_from_link" not in found
+
+
+def test_required_update_is_strong():
+    found = ids("עדכון אבטחה חובה לאפליקציית הבנק. יש להתקין את הגרסה כדי להמשיך: https://example.app/apk")
+    assert "install_from_link" in found
+
+
 def test_opt_out_reply_is_not_link_trick():
     assert "reply_to_enable_link" not in ids("להסרה השב 1 ל 0529999688")
     assert "reply_to_enable_link" not in ids("לשיחה עם נציג השב 1 להסרה השב 2")
