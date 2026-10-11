@@ -302,6 +302,14 @@ form.addEventListener("submit", async (ev) => {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: value }),
     });
+    if (res.status === 429) {
+      const scope = (await res.json().catch(() => ({}))).scope;
+      throw new Error({
+        minute: "בדקתם הרבה הודעות ברצף. נסו שוב בעוד דקה.",
+        day: "הגעתם למספר הבדיקות היומי. אפשר לנסות שוב מחר.",
+        global: "השירות עמוס היום. אפשר לנסות שוב מחר.",
+      }[scope] || "יותר מדי בקשות. נסו שוב מאוחר יותר.");
+    }
     if (!res.ok) throw new Error(res.status === 503 ? "המודל עדיין לא אומן." : "משהו השתבש. נסו שוב.");
     render(await res.json());
   } catch (e) {

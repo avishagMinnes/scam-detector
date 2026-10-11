@@ -9,17 +9,21 @@ GET  /api/health    ready check for the cloud service
 GET  /              the page in web/
 
 Messages are analyzed in memory and never stored or logged.
+/api/check is rate limited per visitor and for the whole app (scam_detector/ratelimit.py;
+limits from RATE_PER_MINUTE, RATE_PER_DAY, RATE_GLOBAL_PER_DAY).
 """
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 import pandas as pd
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from scam_detector import classifier
 from scam_detector.detector import analyze
+from scam_detector.ratelimit import RateLimited, RateLimiter, client_address
 
 ROOT = Path(__file__).resolve().parent
 MAX_CHARS = 5000
@@ -34,6 +38,14 @@ async def lifespan(app):
 
 
 app = FastAPI(title="Scam message checker", docs_url=None, redoc_url=None, lifespan=lifespan)
+app.state.limiter = RateLimiter.from_env()
+
+
+@app.exception_handler(RateLimited)
+def too_many(request, exc):
+    return JSONResponse(status_code=429, headers={"Retry-After": str(exc.retry_after)},
+                        content={"detail": "rate limited", "scope": exc.scope,
+                                 "retry_after": exc.retry_after})
 
 
 class CheckRequest(BaseModel):
@@ -47,11 +59,13 @@ def health():
 
 
 @app.post("/api/check")
-def check(req: CheckRequest):
+def check(req: CheckRequest, request: Request):
     if not req.text.strip():
         raise HTTPException(422, "empty message")
     if not classifier.MODEL_PATH.exists():
         raise HTTPException(503, "model not trained")
+    peer = request.client.host if request.client else None
+    request.app.state.limiter.check(client_address(request.headers, peer))
     r = analyze(req.text)
     return {
         "risk_level": r["risk_level"],
