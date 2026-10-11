@@ -25,6 +25,12 @@ def test_check_scam():
     assert {"id", "strength", "he", "en"} == set(body["red_flags"][0])
 
 
+def test_health():
+    res = client.get("/api/health")
+    assert res.status_code == 200
+    assert res.json()["status"] == "ok"
+
+
 def test_rejects_empty_and_too_long():
     assert client.post("/api/check", json={"text": ""}).status_code == 422
     assert client.post("/api/check", json={"text": "   "}).status_code == 422

@@ -25,9 +25,17 @@ Personal project: built on my own time and equipment.
 ## Run it
 ```
 python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+.venv\Scripts\python -m pip install -r requirements-dev.txt --extra-index-url https://download.pytorch.org/whl/cpu
 .venv\Scripts\python train\train.py          # trains models/alephbert.joblib + baseline.joblib (needs the private data files; first run downloads AlephBERT, ~500 MB)
 .venv\Scripts\python -m uvicorn api:app --port 8000  # then open http://localhost:8000
 .venv\Scripts\python -m pytest tests          # run the tests
 ```
 The app uses the AlephBERT model by default. To use the older word-count model instead, set `SCAM_MODEL=tfidf` before starting the server.
+## Run it in Docker
+Needs Docker Desktop and a trained `models/alephbert.joblib`.
+```
+docker build -t scam-detector .
+docker run --rm -p 8080:8080 scam-detector     # then open http://localhost:8080
+```
+The image contains only the app, the page, the draft examples and the AlephBERT model
+(see `.dockerignore`): never the private messages or the TF-IDF model.

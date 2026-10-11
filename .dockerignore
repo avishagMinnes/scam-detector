@@ -1,0 +1,9 @@
+# Send only what the image needs. Above all: no private messages, ever.
+*
+!requirements.txt
+!api.py
+!scam_detector/
+!web/
+!data/draft_examples.csv
+!models/alephbert.joblib
+**/__pycache__

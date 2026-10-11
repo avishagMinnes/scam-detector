@@ -5,6 +5,7 @@ Then open http://localhost:8000
 
 POST /api/check     {"text": "..."} -> risk level, warning signs, advice
 GET  /api/examples  written practice examples (not real messages)
+GET  /api/health    ready check for the cloud service
 GET  /              the page in web/
 
 Messages are analyzed in memory and never stored or logged.
@@ -37,6 +38,12 @@ app = FastAPI(title="Scam message checker", docs_url=None, redoc_url=None, lifes
 
 class CheckRequest(BaseModel):
     text: str = Field(min_length=1, max_length=MAX_CHARS)
+
+
+@app.get("/api/health")
+def health():
+    """For the cloud service: answers only once the model is loaded (startup waits for it)."""
+    return {"status": "ok", "model": classifier.MODEL_KIND}
 
 
 @app.post("/api/check")

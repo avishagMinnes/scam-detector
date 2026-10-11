@@ -39,4 +39,5 @@
 - Done: removed he-p092 (user's decision; was training). Switched the app to the AlephBERT reader (scam_detector/embedder.py, pinned model revision); TF-IDF kept as fallback (SCAM_MODEL=tfidf). Readers now get text without [NAME]-style placeholders (they were an unfair hint). Full detector, real training msgs (out-of-fold): scams flagged 19/21 (14 high), legit 7/67 (1 high). Cutoffs 0.56 / 0.83
 - Cost: model loads in ~20 s at server start (done at startup, not on first visit), then ~0.1-0.2 s per message. Loads offline when already downloaded
 - Note: AlephBERT is a Hebrew model; English messages lean more on the rules
-- Next: WhatsApp request to family/friends; re-run test set once test scams reach ~20
+- Phase 4 start: Dockerfile + .dockerignore (only app, page, drafts, alephbert.joblib; AlephBERT baked in at pinned revision; offline at runtime; non-root; PORT for Cloud Run). /api/health added. requirements split into app (requirements.txt) and dev (requirements-dev.txt). Docker Desktop not installed yet (needs admin + WSL2): user installs
+- Next: user installs Docker Desktop -> build and run the image locally; WhatsApp request to family/friends

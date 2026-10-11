@@ -1,0 +1,4 @@
+# For development and tests, on top of the app's requirements
+-r requirements.txt
+pytest==9.1.1
+httpx==0.28.1
