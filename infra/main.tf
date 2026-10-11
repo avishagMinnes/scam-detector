@@ -73,6 +73,7 @@ resource "google_cloud_run_v2_service" "app" {
     }
     max_instance_request_concurrency = 4
     timeout                          = "60s"
+    service_account                  = google_service_account.runtime.email # no permissions (github.tf)
 
     containers {
       image = "${var.region}-docker.pkg.dev/${var.project_id}/scam-detector/app:${var.image_tag}"

@@ -1,0 +1,78 @@
+# Every push: run the tests. Push to main with passing tests: build and deploy.
+#
+# Google Cloud access uses Workload Identity Federation (infra/github.tf): GitHub hands
+# the job a short-lived token, Google trusts it only for this repository's main branch.
+# No password or key is stored in GitHub.
+
+name: test and deploy
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  PROJECT_ID: scam-detector-511311
+  REGION: us-central1
+  IMAGE: us-central1-docker.pkg.dev/scam-detector-511311/scam-detector/app
+  # Must match scam_detector/embedder.py
+  ALEPHBERT_REVISION: 1745fb3ff5137e41e9eb4d6246e0758f63b93e46
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Install
+        run: pip install -r requirements-dev.txt --extra-index-url https://download.pytorch.org/whl/cpu
+
+      - name: Cache AlephBERT (500 MB, downloaded once)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: alephbert-${{ env.ALEPHBERT_REVISION }}
+
+      - name: Tests
+        run: python -m pytest -q tests
+
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency: deploy        # one deployment at a time
+    permissions:
+      contents: read
+      id-token: write          # lets the job ask GitHub for the token Google trusts
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/628655223873/locations/global/workloadIdentityPools/github/providers/github
+          service_account: github-deployer@scam-detector-511311.iam.gserviceaccount.com
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build
+        run: docker build -t "$IMAGE:${GITHUB_SHA::7}" .
+
+      - name: Push
+        run: |
+          gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
+          docker push "$IMAGE:${GITHUB_SHA::7}"
+
+      - name: Deploy (image only; settings live in infra/)
+        run: |
+          gcloud run services update scam-detector \
+            --image="$IMAGE:${GITHUB_SHA::7}" --region="$REGION" --project="$PROJECT_ID"

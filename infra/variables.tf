@@ -15,6 +15,12 @@ variable "alert_email" {
   type        = string
 }
 
+variable "github_repo" {
+  description = "The only GitHub repository allowed to deploy (owner/name)"
+  type        = string
+  default     = "avishagMinnes/scam-detector"
+}
+
 variable "image_tag" {
   description = "Image tag used when Terraform first creates the service (later images come from deploy.ps1)"
   type        = string
