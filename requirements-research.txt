@@ -1,0 +1,4 @@
+# Extra libraries for Phase 3 research (train/compare_models.py), on top of requirements.txt.
+# CPU-only PyTorch: pip install -r requirements-research.txt --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+torch==2.14.1
+transformers==5.19.0

@@ -27,4 +27,10 @@
 - Done: user confirmed he-w010 (legit), he-w011 (scam), en-w026/27 (legit)
 - Done: 37 scams quoted verbatim in published warnings (news, Cyber Directorate, consumer sites; sources in the file) -> data/web_examples.csv, TRAINING ONLY. No overlap >=0.5 with any real message. Covers the missing types (Hi Mom, code request, investment, prize, job), mostly English for Hi Mom/prize
 - Result (real training msgs, out-of-fold): model alone 45% -> 59% of scams, AUC 0.81 -> 0.87; combined unchanged 77% scams / 10% legit flagged. Cutoffs 0.51/0.63
-- Next: WhatsApp request sent to family/friends (drafted); add their scams as they arrive
+- Done: Phase 3 model comparison, reader approach (train/compare_models.py): pretrained Hebrew model -> 768-number vector -> logistic regression. Grouped 5-fold CV, training data only. Real training messages, same cutoff rule (<=10% false alarms):
+  TF-IDF baseline: AUC real 0.87, real scams caught 59%
+  AlephBERT reader: AUC real 0.87, caught 73%
+  DictaBERT reader: AUC real 0.87, caught 45%
+  average TF-IDF + AlephBERT: AUC real 0.93, caught 77%; legit flagged 9% for all
+- Learned: no single reader beats TF-IDF on AUC, but averaging the two helps (they make different mistakes). Only 22 real scams, so 77% vs 59% is 17 vs 13 messages; the blend partner was picked on the same data, so slightly optimistic. Cost: ~0.2 s per message on CPU, ~500 MB model, PyTorch in the server
+- Next: decide whether to adopt the blend (measure it inside the full detector with rules first); WhatsApp request to family/friends
