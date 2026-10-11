@@ -4,6 +4,8 @@ Uses TRAINING data only (the locked test set is never read here):
   - real messages marked "train" in data/split.csv
   - data/uci_relabeled.csv (English)
   - data/draft_examples.csv (written examples)
+  - data/web_examples.csv (real scams quoted in published warnings; training only,
+    because famous published campaigns don't represent what people actually receive)
 
 Steps: grouped cross-validation, choose the cutoff, show mistakes and what the model
 relies on, then train on all training data and save models/baseline.joblib.
@@ -50,7 +52,10 @@ def load_training_data():
     real = real[real.split == "train"].assign(origin="real")
     uci = pd.read_csv(DATA / "uci_relabeled.csv", encoding="utf-8-sig").assign(origin="uci")
     drafts = pd.read_csv(DATA / "draft_examples.csv", encoding="utf-8-sig").assign(origin="draft")
-    df = pd.concat([real, uci, drafts], ignore_index=True)
+    parts = [real, uci, drafts]
+    if (DATA / "web_examples.csv").exists():
+        parts.append(pd.read_csv(DATA / "web_examples.csv", encoding="utf-8-sig").assign(origin="web"))
+    df = pd.concat(parts, ignore_index=True)
     df["clean"] = df.text.map(clean_text)
     df["y"] = (df.label == "scam").astype(int)
     return df

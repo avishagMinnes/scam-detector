@@ -25,4 +25,6 @@
 - Done: 27 messages from own phone screenshots (26 legit everyday/marketing incl. bit, Maccabi, max, CARGO, HFD, Ontopo; 1 illegal-gambling scam). 22 train / 5 test (add_to_split now keeps new template groups together). Labels to confirm: he-w010, he-w011, en-w026/27
 - Learned: more real Hebrew legit made the model more cautious: real training scams caught by model alone 68% -> 45%, combined 86% -> 77%; legit flagged ~10%. Real data now 22 scams vs 67 legit: the model now needs more real Hebrew SCAMS. Only high false alarm: CARGO 'update your address' (he-w010) - looks exactly like a delivery scam
 - Done: user confirmed he-w010 (legit), he-w011 (scam), en-w026/27 (legit)
-- Next: collect real Hebrew scams (family/friends)
+- Done: 37 scams quoted verbatim in published warnings (news, Cyber Directorate, consumer sites; sources in the file) -> data/web_examples.csv, TRAINING ONLY. No overlap >=0.5 with any real message. Covers the missing types (Hi Mom, code request, investment, prize, job), mostly English for Hi Mom/prize
+- Result (real training msgs, out-of-fold): model alone 45% -> 59% of scams, AUC 0.81 -> 0.87; combined unchanged 77% scams / 10% legit flagged. Cutoffs 0.51/0.63
+- Next: WhatsApp request sent to family/friends (drafted); add their scams as they arrive
