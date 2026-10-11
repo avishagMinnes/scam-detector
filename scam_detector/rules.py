@@ -38,10 +38,18 @@ _FREE = _any(r"ללא תשלום|ללא עלות|ללא התחייבות|בחי�
 
 _VERIFY = _any(r"לאמת|אימות|אמתו|עדכן את|לעדכן|עדכנו|להזין|הזינו|\bverify|confirm your|update your|validate")
 _VERIFY_WHAT = _any(r"זהות|פרטי|כתובת|חשבון|כרטיס|identity|details|account|address|\bcard\b")
-_BLOCKED = _any(r"נחסם|חסום|ייחסם|יושעה|הושעה|הוקפא|הוצאה לפועל|יוחזר|תוחזר|\bblocked|suspended|\blocked\b|deactivat|will be closed|permanent closure")
+_BLOCKED = _any(r"נחסם|חסום|ייחסם|יושעה|הושעה|הוקפא|הוצאה לפועל|יוחזר|תוחזר|יועבר לבית המשפט|"
+                r"רישיון .{0,25}(מוגבל|יוגבל|ייפסל|יישלל)|השלכות משפטיות|"
+                r"\bblocked|suspended|\blocked\b|deactivat|will be closed|permanent closure|legal action")
 
 _URGENT = _any(r"דחוף|באופן מיידי|מיידי|בהקדם|עוד היום|תוך \d+ ?(שעות|ש')|24 ש|הזדמנות אחרונה|מסתיימת היום|"
+               r"מועד אחרון|אין להסתכן|"
                r"\burgent|immediately|right away|within \d+ ?hours|final notice|last chance|expires today")
+
+# iPhone disables links from unknown senders until you reply; scams ask you to reply
+# (or copy the link by hand) to get around that. Opt-out lines ("להסרה השב 1") don't match.
+_ENABLE_LINK = _any(r"(להשיב|השיבו|השב|reply|respond)\W{0,3}(עם\W{0,3})?[\"'״]?(1|y|yes|כן)[\"'״]?.{0,60}(קישור|התראה|הקישור|link)|"
+                    r"(להעתיק|העתיקו|העתק|copy)\W{1,3}(את\W)?(הקישור|ה?לינק|the link|link).{0,40}(דפדפן|browser)")
 
 _MONEY_REQUEST = _any(r"להעביר (לי )?(כסף|תשלום)|צריך להעביר|תעביר(י)? לי|העברה דחופה|"
                       r"(לקנות|תקנה|תקני|קנה|קני) .{0,15}(כרטיס מתנה|גיפט ?קארד)|"
@@ -189,6 +197,13 @@ def check(text, found=None):
                   "Pressures you to act fast",
                   "אין סיבה למהר. הודעה אמיתית תחכה שתבדקו.",
                   "There's no need to hurry. A real message will wait while you check."))
+
+    if _ENABLE_LINK.search(text):
+        add(_rule("reply_to_enable_link", STRONG,
+                  "מבקשים להשיב להודעה או להעתיק את הקישור ידנית, כדי לעקוף את החסימה של הטלפון",
+                  "Asks you to reply or copy the link by hand, to get around your phone's link blocking",
+                  "הטלפון חסם את הקישור כי השולח לא מוכר. אל תשיבו ואל תעתיקו אותו.",
+                  "Your phone blocked the link because the sender is unknown. Don't reply or copy it."))
 
     unofficial = [l for l in links if l["domain"] not in _OFFICIAL_DELIVERY]
     if _DELIVERY.search(text) and _DELIVERY_PROBLEM.search(text) and unofficial:

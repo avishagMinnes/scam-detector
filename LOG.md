@@ -14,4 +14,5 @@
 - Done: detector.py - combines model + rules into high / medium / low (never 'safe'). Training-data check (out-of-fold): real scams flagged 81% (model alone 57%, rules alone 62%); real legit: 0 high, 7 of 45 'suspicious'. 47 tests pass
 - Done: Streamlit page (app.py): paste, one-click check, colored card, RTL for Hebrew, examples from drafts, links shown as text only, no storage. Tested Hebrew/English, desktop/phone. Pinned requirements.txt + .venv
 - Done: replaced Streamlit with FastAPI (api.py) + own Hebrew-first phone page (web/index.html): light/dark, paste button, examples, results via textContent only. 51 tests
+- Done: new real scam he-s003 (fake police traffic fine, iMessage from softbank.jp, wj-gov.top) -> train via add_to_split.py. New rule reply_to_enable_link (iPhone link-unblock trick); court/license threats. 54 tests
 - Next: Week 7 - run the locked test set once; show the page to 3-5 people

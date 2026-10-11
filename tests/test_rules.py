@@ -53,7 +53,24 @@ def test_investment_group():
     assert "too_good_to_be_true" in ids("87% מהמשתתפים הרוויחו מעל 30% בחודש האחרון")
 
 
+def test_reply_to_enable_link():
+    assert "reply_to_enable_link" in ids('יש להשיב "1" ולפתוח מחדש את ההתראה, או להעתיק את הקישור ידנית לדפדפן')
+    assert "reply_to_enable_link" in ids('(השב "כן" כדי להזין כתובת חדשה, או העתק והדבק את הקישור')
+    assert "reply_to_enable_link" in ids("Reply Y to activate the link")
+
+
+def test_court_and_license_threats():
+    found = ids("התיק יועבר לבית המשפט ורישיון הנהיגה שלך עלול להיות מוגבל. מועד אחרון לתשלום: היום")
+    assert {"threat", "urgency"} <= found
+
+
 # --- real messages that must NOT get warning signs ------------------------
+
+def test_opt_out_reply_is_not_link_trick():
+    assert "reply_to_enable_link" not in ids("להסרה השב 1 ל 0529999688")
+    assert "reply_to_enable_link" not in ids("לשיחה עם נציג השב 1 להסרה השב 2")
+
+
 
 def test_real_code_sms_says_dont_share():
     assert "asks_for_code" not in ids("קוד האימות שלך הוא 482913. אין למסור את הקוד לאף אחד, כולל נציגי הבנק.")
