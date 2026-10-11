@@ -45,4 +45,5 @@ USER app
 ENV HF_HUB_OFFLINE=1
 
 EXPOSE 8080
-CMD ["sh", "-c", "uvicorn api:app --host 0.0.0.0 --port ${PORT}"]
+# --no-access-log: uvicorn's access log would record every visitor's address
+CMD ["sh", "-c", "uvicorn api:app --host 0.0.0.0 --port ${PORT} --no-access-log"]

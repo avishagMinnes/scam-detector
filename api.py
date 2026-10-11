@@ -8,10 +8,13 @@ GET  /api/examples  written practice examples (not real messages)
 GET  /api/health    ready check for the cloud service
 GET  /              the page in web/
 
-Messages are analyzed in memory and never stored or logged.
+Messages are analyzed in memory and never stored or logged. Each check writes one
+anonymous event record (scam_detector/eventlog.py): result type only, no text, no address.
+Run uvicorn with --no-access-log so it doesn't log visitor addresses either.
 /api/check is rate limited per visitor and for the whole app (scam_detector/ratelimit.py;
 limits from RATE_PER_MINUTE, RATE_PER_DAY, RATE_GLOBAL_PER_DAY).
 """
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -21,7 +24,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from scam_detector import classifier
+from scam_detector import classifier, eventlog
 from scam_detector.detector import analyze
 from scam_detector.ratelimit import RateLimited, RateLimiter, client_address
 
@@ -43,6 +46,7 @@ app.state.limiter = RateLimiter.from_env()
 
 @app.exception_handler(RateLimited)
 def too_many(request, exc):
+    eventlog.rate_limited(exc.scope)
     return JSONResponse(status_code=429, headers={"Retry-After": str(exc.retry_after)},
                         content={"detail": "rate limited", "scope": exc.scope,
                                  "retry_after": exc.retry_after})
@@ -66,7 +70,13 @@ def check(req: CheckRequest, request: Request):
         raise HTTPException(503, "model not trained")
     peer = request.client.host if request.client else None
     request.app.state.limiter.check(client_address(request.headers, peer))
-    r = analyze(req.text)
+    started = time.perf_counter()
+    try:
+        r = analyze(req.text)
+    except Exception as error:
+        eventlog.check_failed(error)
+        raise
+    eventlog.check_done(r, (time.perf_counter() - started) * 1000, classifier.MODEL_KIND)
     return {
         "risk_level": r["risk_level"],
         "risk_text": r["risk_text"],

@@ -10,6 +10,11 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "alert_email" {
+  description = "Where alert emails go. Set in infra/terraform.tfvars (kept out of Git)"
+  type        = string
+}
+
 variable "image_tag" {
   description = "Image tag used when Terraform first creates the service (later images come from deploy.ps1)"
   type        = string
