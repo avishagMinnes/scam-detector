@@ -1,6 +1,0 @@
-[browser]
-# Don't send Streamlit usage statistics
-gatherUsageStats = false
-
-[server]
-headless = true

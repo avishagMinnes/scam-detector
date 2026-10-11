@@ -27,6 +27,6 @@ Personal project: built on my own time and equipment.
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
 .venv\Scripts\python train\train.py          # trains models/baseline.joblib (needs the private data files)
-.venv\Scripts\python -m streamlit run app.py  # opens the page at http://localhost:8501
+.venv\Scripts\python -m uvicorn api:app --port 8000  # then open http://localhost:8000
 .venv\Scripts\python -m pytest tests          # run the tests
 ```

@@ -13,4 +13,5 @@
 - Done: rules.py - 16 warning-sign rules with Hebrew/English explanations and advice, 17 tests. On training data only 1 legit message gets a strong sign. Fixed a UCI label (4846 is a prize scam); retrained: real-message CV recall moved 67% -> 57% from that one change, so small-data numbers are noisy
 - Done: detector.py - combines model + rules into high / medium / low (never 'safe'). Training-data check (out-of-fold): real scams flagged 81% (model alone 57%, rules alone 62%); real legit: 0 high, 7 of 45 'suspicious'. 47 tests pass
 - Done: Streamlit page (app.py): paste, one-click check, colored card, RTL for Hebrew, examples from drafts, links shown as text only, no storage. Tested Hebrew/English, desktop/phone. Pinned requirements.txt + .venv
+- Done: replaced Streamlit with FastAPI (api.py) + own Hebrew-first phone page (web/index.html): light/dark, paste button, examples, results via textContent only. 51 tests
 - Next: Week 7 - run the locked test set once; show the page to 3-5 people
