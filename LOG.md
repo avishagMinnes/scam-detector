@@ -24,4 +24,5 @@
 - Done: payment_via_link now needs a debt/fine/fee or a direct order to pay (not just the word payment); install_from_link stays strong only when an install/update is required, plain app invitations are a new medium sign app_download_link. Designed from the Directorate patterns, tests in my own wording (not test-set messages). Training: payment rule still 6 scams, legit 1 -> 0; mortgage-refund scam he-p094 loses the payment sign (correct: it offers money) but stays medium. 58 tests
 - Done: 27 messages from own phone screenshots (26 legit everyday/marketing incl. bit, Maccabi, max, CARGO, HFD, Ontopo; 1 illegal-gambling scam). 22 train / 5 test (add_to_split now keeps new template groups together). Labels to confirm: he-w010, he-w011, en-w026/27
 - Learned: more real Hebrew legit made the model more cautious: real training scams caught by model alone 68% -> 45%, combined 86% -> 77%; legit flagged ~10%. Real data now 22 scams vs 67 legit: the model now needs more real Hebrew SCAMS. Only high false alarm: CARGO 'update your address' (he-w010) - looks exactly like a delivery scam
-- Next: confirm 4 labels; collect scams (family/friends)
+- Done: user confirmed he-w010 (legit), he-w011 (scam), en-w026/27 (legit)
+- Next: collect real Hebrew scams (family/friends)
