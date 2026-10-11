@@ -6,7 +6,7 @@ The answer is never "safe": the lowest level is "no warning signs found".
 import re
 
 from scam_detector import classifier
-from scam_detector.extract import extract_all
+from scam_detector.extract import _URL_RE, extract_all
 from scam_detector.rules import MEDIUM, STRONG, VERY_STRONG, check
 
 HIGH, MEDIUM_RISK, LOW = "high", "medium", "low"
@@ -37,8 +37,10 @@ _LATIN_LETTER = re.compile(r"[A-Za-z]")
 
 
 def detect_language(text):
-    """'he' if the message has more Hebrew letters than Latin ones, else 'en'."""
-    return "he" if len(_HEBREW_LETTER.findall(text)) >= len(_LATIN_LETTER.findall(text)) else "en"
+    """'he' if the message has more Hebrew letters than Latin ones, else 'en'.
+    Links are left out: a long Latin-letter link in a Hebrew message isn't English."""
+    words = _URL_RE.sub(" ", text)
+    return "he" if len(_HEBREW_LETTER.findall(words)) >= len(_LATIN_LETTER.findall(words)) else "en"
 
 
 def combine(probability, cutoff, high_cutoff, signs, reassuring):

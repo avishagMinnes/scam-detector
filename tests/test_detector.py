@@ -33,6 +33,9 @@ def test_combine(prob, signs, reassuring, expected):
 def test_detect_language():
     assert detect_language("לקוח יקר, הכרטיס שלך נחסם https://x.com") == "he"
     assert detect_language("Your package is waiting") == "en"
+    # A long link must not turn a short Hebrew message into "English"
+    assert detect_language('החוב שלך 38.70 ש"ח: https://secret-link.top/abc התקשר 052-1234567') == "he"
+    assert detect_language("Pay now: https://example.com/a") == "en"
 
 
 needs_model = pytest.mark.skipif(not classifier.MODEL_PATH.exists(),
