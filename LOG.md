@@ -45,4 +45,5 @@
 - Note: budgets only alert, they don't cap; the trial itself is the cap (never charged unless upgraded)
 - Done: cloud-run-proxy component installed (browser access via tunnel at localhost:8090). Terraform (infra/): APIs, Artifact Registry with cleanup policy, Cloud Run service (private, 0-1 instances, 2 GiB). Existing resources adopted with import blocks: plan = 4 import / 0 change; after apply, plan = no changes. Auth via short-lived token from the scam-detector gcloud config (infra/tf.ps1), default credentials untouched. deploy.ps1 now only swaps the image; Terraform owns settings. State is local and gitignored
 - Done: rate limiting (scam_detector/ratelimit.py) on /api/check: 10/min and 100/day per visitor, 2000/day for the whole app (env RATE_*). In memory only, visitor addresses as salted hashes (salt changes on restart), nothing logged. Real address = last X-Forwarded-For entry on Cloud Run. 429 + Retry-After; page shows a Hebrew message per limit. Works because max 1 instance. 66 tests
-- Next: deploy; GitHub repo + Actions; logging; WhatsApp request to family/friends
+- Done: deployed with deploy.ps1 (revision 2, 3 min). Cloud: anonymous 403; 11 checks via tunnel -> 10x 200 then 429; Terraform plan: no changes
+- Next: GitHub repo + Actions; logging; WhatsApp request to family/friends
