@@ -19,4 +19,6 @@
   combined: scams flagged 6/9 (95% range 35-88%), 3 as high; legit flagged 11/23 (48%), 4 as high
   model only: 3/9 scams, 7/23 legit; rules only: 4/9 scams, 7/23 legit
 - Learned: false alarms far above cross-validation (13%). 7 of 11 come from the model: its cutoff was chosen on training data where most legit messages are easy English chat, so it is too low for Hebrew marketing. Rules: payment_via_link and install_from_link fire on real marketing. Not tuned on test messages
-- Next: show the page to 3-5 people; Phase 3 - choose cutoffs on Hebrew real data, more Hebrew legit everyday messages
+- Done (Phase 3 start): cutoffs now chosen on real training messages only (train.py CUTOFF_ORIGINS): 0.42/0.50 -> 0.45/0.61. Real training data (out-of-fold): scams flagged 19/22 either way; legit flagged 7/45 -> 5/45, legit as high 1 -> 0. Test set NOT re-run (keep it honest; re-run at end of Phase 3 with new test messages)
+- Learned: the cutoff explains only part of the test gap (training legit 7/45 flagged even with old cutoffs vs test 11/23). Bigger cause is likely the model/data: too few Hebrew everyday legit messages
+- Next: tighten payment_via_link and install_from_link on training marketing; collect Hebrew everyday legit messages

@@ -13,13 +13,14 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "train"))
 from scam_detector.detector import HIGH, LOW, MEDIUM_RISK, combine  # noqa: E402
 from scam_detector.rules import check  # noqa: E402
-from train import (MAX_FALSE_ALARM_RATE_HIGH, choose_threshold, load_training_data,  # noqa: E402
-                   out_of_fold_probabilities, template_groups)
+from train import (CUTOFF_ORIGINS, MAX_FALSE_ALARM_RATE_HIGH, choose_threshold,  # noqa: E402
+                   load_training_data, out_of_fold_probabilities, template_groups)
 
 df = load_training_data()
 prob = out_of_fold_probabilities(df, template_groups(df))
-cutoff = choose_threshold(df.y.values, prob)
-high_cutoff = choose_threshold(df.y.values, prob, MAX_FALSE_ALARM_RATE_HIGH)
+pick = df.origin.isin(CUTOFF_ORIGINS).values
+cutoff = choose_threshold(df.y.values[pick], prob[pick])
+high_cutoff = choose_threshold(df.y.values[pick], prob[pick], MAX_FALSE_ALARM_RATE_HIGH)
 print(f"cutoffs: suspicious > {cutoff:.2f}, confident > {high_cutoff:.2f}\n")
 
 rows = []

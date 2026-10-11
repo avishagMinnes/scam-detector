@@ -34,6 +34,9 @@ SEED = 20261008
 MAX_FALSE_ALARM_RATE = 0.10
 # A stricter cutoff where the model alone is trusted to say "looks like a scam"
 MAX_FALSE_ALARM_RATE_HIGH = 0.02
+# Cutoffs are chosen on real messages only: the UCI legit messages are easy English chat,
+# which made the cutoffs too low for real Hebrew marketing (Phase 2 baseline, LOG.md).
+CUTOFF_ORIGINS = ("real",)
 
 
 def load_training_data():
@@ -121,10 +124,12 @@ def main():
           f"({df.groupby('origin').size().to_dict()}); {len(set(groups))} template groups")
 
     prob = out_of_fold_probabilities(df, groups)
-    threshold = choose_threshold(df.y.values, prob)
-    high_threshold = choose_threshold(df.y.values, prob, MAX_FALSE_ALARM_RATE_HIGH)
+    pick = df.origin.isin(CUTOFF_ORIGINS).values
+    threshold = choose_threshold(df.y.values[pick], prob[pick])
+    high_threshold = choose_threshold(df.y.values[pick], prob[pick], MAX_FALSE_ALARM_RATE_HIGH)
     report(df, prob, threshold)
-    print(f"High-confidence cutoff (max {MAX_FALSE_ALARM_RATE_HIGH:.0%} false alarms): {high_threshold:.2f}")
+    print(f"Cutoffs chosen on {pick.sum()} {'+'.join(CUTOFF_ORIGINS)} messages: suspicious > {threshold:.2f}, "
+          f"confident > {high_threshold:.2f} (max {MAX_FALSE_ALARM_RATE_HIGH:.0%} false alarms)")
     show_mistakes(df, prob, threshold)
 
     model = make_model().fit(df.clean, df.y)
