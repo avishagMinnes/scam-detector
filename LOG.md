@@ -40,4 +40,5 @@
 - Cost: model loads in ~20 s at server start (done at startup, not on first visit), then ~0.1-0.2 s per message. Loads offline when already downloaded
 - Note: AlephBERT is a Hebrew model; English messages lean more on the rules
 - Phase 4 start: Dockerfile + .dockerignore (only app, page, drafts, alephbert.joblib; AlephBERT baked in at pinned revision; offline at runtime; non-root; PORT for Cloud Run). /api/health added. requirements split into app (requirements.txt) and dev (requirements-dev.txt). Docker Desktop not installed yet (needs admin + WSL2): user installs
-- Next: user installs Docker Desktop -> build and run the image locally; WhatsApp request to family/friends
+- Done: Docker image builds (3.5 min first time). Real content 2.0 GB (CPU PyTorch 0.8 GB, AlephBERT 0.5 GB); Docker lists ~4 GB because it counts compressed + unpacked. Contains only the 11 app files + model, runs as non-root. Tested with --network none: ready in 7 s, correct answers, ~0.1 s per check, no internet reachable. Page works from the container at localhost:8080
+- Next: Phase 4 cloud: Google Cloud account + budget cap (user), then Cloud Run deploy; WhatsApp request to family/friends
