@@ -51,4 +51,6 @@
 - Observed: right after a deploy, the first request can get Cloud Run's own 429 'Rate exceeded' for ~20 s while the new copy loads (max 1 instance)
 - Done: privacy check before first upload: removed user's phone number from tests across all history (filter-branch); commit email changed to GitHub noreply in all history; repo-local git identity (work defaults untouched). Pushed to private repo avishagMinnes/scam-detector via personal account
 - Done: GitHub Actions (.github/workflows/ci.yml): tests on every push; on main, build + push + deploy. Keyless Workload Identity Federation (infra/github.tf): only this repo's main branch; github-deployer can push to the one repository and update the one service. App now runs as scam-detector-run with NO permissions (was the default compute account with Editor). alephbert.joblib committed (768 weights, no text)
-- Next: watch the first workflow run; WhatsApp request to family/friends
+- Done: first GitHub Actions run succeeded in 6m51s: test job 1m34s (69 passed on GitHub's machines, AlephBERT downloaded then cached), deploy job 5m12s; cloud now runs image 4d24915 built by GitHub; still private (403). Documentation-only changes no longer trigger a run
+- PHASE 4 COMPLETE: Docker, Cloud Run (private), Terraform, GitHub Actions, rate limiting, logging + monitoring
+- Next: WhatsApp request to family/friends (biggest gap: real scams for test set); Phase 5 security

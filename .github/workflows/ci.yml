@@ -8,7 +8,9 @@ name: test and deploy
 
 on:
   push:
+    paths-ignore: ["**.md", "docs/**"]     # documentation-only changes don't redeploy
   pull_request:
+    paths-ignore: ["**.md", "docs/**"]
 
 permissions:
   contents: read

@@ -53,3 +53,7 @@ The service needs a login (anonymous requests get 403). Max 1 instance, 0 when i
 Monitoring: dashboard "Scam detector" in Google Cloud Monitoring; email alerts for failing
 checks, rate-limit bursts and slowness. Logs hold one anonymous record per check (no text,
 no addresses); Cloud Run's request log is excluded because it contains visitor addresses.
+## Automatic tests and deployment
+GitHub Actions (`.github/workflows/ci.yml`): every push runs the tests; a push to `main`
+with passing tests builds the image and deploys it. Google Cloud access is keyless
+(Workload Identity Federation, `infra/github.tf`), limited to this repository's `main` branch.
