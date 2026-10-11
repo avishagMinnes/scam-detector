@@ -50,3 +50,6 @@ powershell -File infra\tf.ps1 apply     # cloud setup (Terraform): apply changes
 To open the private service in a browser:
 `gcloud run services proxy scam-detector --region=us-central1 --port=8090 --configuration=scam-detector`, then http://localhost:8090
 The service needs a login (anonymous requests get 403). Max 1 instance, 0 when idle.
+Monitoring: dashboard "Scam detector" in Google Cloud Monitoring; email alerts for failing
+checks, rate-limit bursts and slowness. Logs hold one anonymous record per check (no text,
+no addresses); Cloud Run's request log is excluded because it contains visitor addresses.
