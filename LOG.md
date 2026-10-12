@@ -71,3 +71,4 @@
 - Added he-w035 GOLD-TAX tax-refund marketing, user label: legit -> TEST
 - Next: send the WhatsApp message (bot + scams); add family ids; final test-set run at ~20 test scams; IP clause; write-up numbers
 - Bot: second approved Telegram user added (2 in total; ids only in terraform.tfvars, kept out of Git)
+- Added 2 pasted scams: lottery prize ('reply with your name') -> train; cannabis 'VIP pharmacy' (weedil.shop) -> TEST (14 test scams). Retrained: real-message AUC 0.89, cutoffs 0.66 / 0.78. Smoking-tips spam (goo.gl) waits for the user's label
