@@ -70,3 +70,4 @@
 - Added he-w034 (family member's phone): real MAX gift card via online.max.co.il, legit hard case -> TEST. Skipped 4 party ads from the same batch (enough party/bar marketing; Google Messages had marked them spam: spam is not scam)
 - Added he-w035 GOLD-TAX tax-refund marketing, user label: legit -> TEST
 - Next: send the WhatsApp message (bot + scams); add family ids; final test-set run at ~20 test scams; IP clause; write-up numbers
+- Bot: second approved Telegram user added (2 in total; ids only in terraform.tfvars, kept out of Git)
