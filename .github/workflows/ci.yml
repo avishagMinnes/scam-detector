@@ -74,7 +74,13 @@ jobs:
           gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
           docker push "$IMAGE:${GITHUB_SHA::7}"
 
-      - name: Deploy (image only; settings live in infra/)
+      - name: Deploy web app and Telegram bot (image only; settings live in infra/)
         run: |
-          gcloud run services update scam-detector \
-            --image="$IMAGE:${GITHUB_SHA::7}" --region="$REGION" --project="$PROJECT_ID"
+          for service in scam-detector scam-detector-bot; do
+            if ! gcloud run services describe "$service" --region="$REGION" --project="$PROJECT_ID" >/dev/null 2>&1; then
+              echo "::warning::$service doesn't exist yet (create it with infra/); skipped"
+              continue
+            fi
+            gcloud run services update "$service" \
+              --image="$IMAGE:${GITHUB_SHA::7}" --region="$REGION" --project="$PROJECT_ID"
+          done

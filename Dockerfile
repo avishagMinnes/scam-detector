@@ -31,7 +31,7 @@ snapshot_download(e.HUB_ID, revision=e.REVISION, allow_patterns=['*.json','*.txt
  && rm /tmp/embedder.py
 
 # 3. The app
-COPY api.py ./
+COPY api.py bot.py ./
 COPY scam_detector/ scam_detector/
 COPY web/ web/
 COPY data/draft_examples.csv data/
@@ -45,5 +45,6 @@ USER app
 ENV HF_HUB_OFFLINE=1
 
 EXPOSE 8080
+# APP_MODULE: api:app (web app, default) or bot:app (Telegram bot service)
 # --no-access-log: uvicorn's access log would record every visitor's address
-CMD ["sh", "-c", "uvicorn api:app --host 0.0.0.0 --port ${PORT} --no-access-log"]
+CMD ["sh", "-c", "uvicorn ${APP_MODULE:-api:app} --host 0.0.0.0 --port ${PORT} --no-access-log"]

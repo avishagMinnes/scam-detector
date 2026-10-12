@@ -22,7 +22,8 @@ resource "google_logging_project_exclusion" "cloud_run_requests" {
 # --- Counters built from the app's anonymous records -----------------------------
 
 locals {
-  app_logs = "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=\"${google_cloud_run_v2_service.app.name}\""
+  # Both services: the web app and the Telegram bot
+  app_logs = "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=(\"${google_cloud_run_v2_service.app.name}\" OR \"scam-detector-bot\")"
 }
 
 resource "google_logging_metric" "checks" {

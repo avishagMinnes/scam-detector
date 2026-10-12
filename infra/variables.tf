@@ -21,6 +21,12 @@ variable "github_repo" {
   default     = "avishagMinnes/scam-detector"
 }
 
+variable "telegram_allowed_users" {
+  description = "Telegram user ids the bot answers (private testing). Set in terraform.tfvars"
+  type        = list(string)
+  default     = []
+}
+
 variable "image_tag" {
   description = "Image tag used when Terraform first creates the service (later images come from deploy.ps1)"
   type        = string
