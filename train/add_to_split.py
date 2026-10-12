@@ -28,6 +28,8 @@ SAME_TEMPLATE_AS = {
     "he-w024": "mashbir", "he-w025": "mashbir",
     "en-w026": "shein_sms", "en-w027": "shein_sms",
     "he-w028": "ontopo", "he-w029": "ontopo", "he-w030": "ontopo",
+    # screenshots 2026-10-12: same Enforcement Authority campaign, new domains
+    "he-w032": "he-p097", "he-w033": "he-p097",
 }
 
 

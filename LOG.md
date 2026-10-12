@@ -65,4 +65,6 @@
 - Done: user tested the bot with 4 test messages (scam, Hi Mom, real code SMS, disguised scam): all as expected. Cloud records: channel=telegram, results + one 👍, 0.2-0.7 s per check, no message words or links stored
 - Done: analytics views in BigQuery (infra/analytics.tf): checks_weekly, scam_types_weekly (rough type from signs), signs_weekly, feedback_weekly, signs_in_wrong_answers. Weekly totals only (small-group privacy). Verified on the 4 bot tests: types family / delivery / debt as expected
 - Done: user built the Looker Studio dashboard on the 5 views (personal account, private): scam types, weekly trend by result, top tricks, 👍/👎 by result, signs in wrong answers; hourly freshness
-- Next: send the WhatsApp message (bot + scams); add family ids; wait 2-3 weeks of use; final test-set run when ~20 test scams; IP clause before anything public; write-up
+- Done: write-up draft (Claude doc) with architecture diagram and attack chart; [FINAL] placeholders for the last test-set run
+- Added 3 real scams from screenshots (2026-10-12): fake Highway 6 debt (did.li), and 2 more of the Enforcement Authority campaign with rotated domains (govkom.de, theguvlin.es; same group as he-p097). All 3 landed in the TEST set (13 test scams now). Not used for any tuning. GOLD-TAX tax-refund message waits for the user's label
+- Next: send the WhatsApp message (bot + scams); add family ids; final test-set run at ~20 test scams; IP clause; write-up numbers
