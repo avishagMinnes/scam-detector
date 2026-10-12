@@ -7,7 +7,8 @@ import re
 
 from scam_detector import classifier
 from scam_detector.extract import _URL_RE, extract_all
-from scam_detector.rules import MEDIUM, STRONG, VERY_STRONG, check
+from scam_detector.normalize import normalize
+from scam_detector.rules import MEDIUM, STRONG, VERY_STRONG, check, trick_signs
 
 HIGH, MEDIUM_RISK, LOW = "high", "medium", "low"
 
@@ -72,9 +73,12 @@ def combine(probability, cutoff, high_cutoff, signs, reassuring):
 
 
 def analyze(text):
-    text = text.strip()
+    # Undo hiding tricks first; everything below reads the cleaned text, and the tricks
+    # themselves become warning signs (Phase 5)
+    text, tricks = normalize(text.strip())
     found = extract_all(text)
     signs, reassuring = check(text, found)
+    signs += trick_signs(tricks)
     probability = classifier.scam_probability(text)
     cutoff, high_cutoff = classifier.thresholds()
     level = combine(probability, cutoff, high_cutoff, signs, reassuring)

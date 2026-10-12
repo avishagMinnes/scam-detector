@@ -33,7 +33,8 @@ from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from scam_detector.classifier import MODEL_FILES, MODEL_KIND, clean_text, reader_text  # noqa: E402
+from scam_detector.classifier import (MODEL_FILES, MODEL_KIND, clean_text, parts,  # noqa: E402
+                                      reader_text)
 
 DATA = ROOT / "data"
 SEED = 20261008
@@ -86,12 +87,8 @@ def make_model(kind="tfidf"):
     )
 
 
-def features(df, kind="tfidf"):
-    """TF-IDF takes cleaned text; AlephBERT takes meaning vectors (cached on disk)."""
-    if kind != "alephbert":
-        return df.clean
+def _embed_cached(texts):
     from scam_detector import embedder
-    texts = df.text.map(reader_text).tolist()
     key = hashlib.sha256(("\n\x00".join(texts) + embedder.REVISION).encode()).hexdigest()[:16]
     path = ROOT / "models" / "embeddings" / f"alephbert_{key}.npy"
     if path.exists():
@@ -102,6 +99,30 @@ def features(df, kind="tfidf"):
     return vectors
 
 
+def part_matrix(df, kind="tfidf"):
+    """Features for every part of every message (classifier.parts: the whole message
+    first, then paragraphs/sentence groups of long ones), plus which message each
+    part belongs to. TF-IDF takes cleaned text; AlephBERT takes meaning vectors."""
+    pieces, owner = [], []
+    for i, text in enumerate(df.text):
+        for p in parts(text):
+            pieces.append(p)
+            owner.append(i)
+    owner = np.array(owner)
+    if kind == "alephbert":
+        X = _embed_cached([reader_text(p) for p in pieces])
+    else:
+        X = np.array([clean_text(p) for p in pieces], dtype=object)
+    return X, owner
+
+
+def features(df, kind="tfidf"):
+    """Whole-message features (what the model is trained on)."""
+    X, owner = part_matrix(df, kind)
+    first = np.r_[0, np.flatnonzero(np.diff(owner)) + 1]
+    return X[first]
+
+
 def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
     """Lowest cutoff that keeps false alarms at or below max_false_alarms."""
     legit = np.sort(prob[y == 0])
@@ -109,10 +130,20 @@ def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
 
 
 def out_of_fold_probabilities(df, groups, kind=MODEL_KIND):
-    """Each message scored by a model that never saw it (or its template) in training."""
+    """Each message scored by a model that never saw it (or its template) in training,
+    the way the app scores: the highest score of the whole message and its parts."""
+    X, owner = part_matrix(df, kind)
+    first = np.r_[0, np.flatnonzero(np.diff(owner)) + 1]
+    X_whole, y = X[first], df.y.values
+    prob = np.zeros(len(df))
     cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=SEED)
-    return cross_val_predict(make_model(kind), features(df, kind), df.y, groups=groups, cv=cv,
-                             method="predict_proba")[:, 1]
+    for train_idx, test_idx in cv.split(X_whole, y, groups):
+        model = make_model(kind).fit(X_whole[train_idx], y[train_idx])
+        rows = np.isin(owner, test_idx)
+        part_prob = model.predict_proba(X[rows])[:, 1]
+        for i in test_idx:
+            prob[i] = part_prob[owner[rows] == i].max()
+    return prob
 
 
 def report(df, prob, threshold):

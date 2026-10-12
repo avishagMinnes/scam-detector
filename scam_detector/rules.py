@@ -83,6 +83,12 @@ _TOO_GOOD = _any(r"\d+% .{0,30}(רווח|תשואה|הרוויח)|הרוויחו
 _OUR_RECORDS = _any(r"לפי נתונים|מרישומי|בהתאם לרישומי|נמצאת זכאי|הינך זכאי|לפי הרישומים|"
                     r"according to our records|our records show")
 
+# A message insisting it isn't a scam: real organizations almost never write this
+_NOT_A_SCAM = _any(r"(זו|זאת|זה|ההודעה) (אינה|אינו|איננה|לא) (הודעת )?(הונאה|ספאם|עוקץ|פישינג)|"
+                   r"לא מדובר ב(הונאה|עוקץ)|הודעה רשמית ומאומתת|אין צורך לבדוק|"
+                   r"(this|it) is not (a )?(scam|spam|fraud|phishing)|not a scam|verified (official )?message|"
+                   r"no need to (check|verify)")
+
 # Well-known link shorteners: they hide where the link really goes
 _SHORTENERS = {"bit.ly", "tinyurl.com", "t.co", "shorturl.at", "qrco.de", "cutt.ly", "is.gd",
                "ow.ly", "rebrand.ly", "tiny.cc", "goo.gl", "rb.gy", "s.id"}
@@ -133,6 +139,37 @@ def _lookalike(link):
 def _rule(id, strength, he, en, advice_he, advice_en):
     return {"id": id, "strength": strength, "he": he, "en": en,
             "advice_he": advice_he, "advice_en": advice_en}
+
+
+def trick_signs(tricks):
+    """Warning signs for hiding tricks that normalize() undid (see normalize.py)."""
+    signs = []
+    if tricks["mixed_alphabet"]:
+        in_link = any("." in t or "/" in t for t in tricks["mixed_alphabet"])
+        signs.append(_rule("mixed_alphabet", VERY_STRONG if in_link else STRONG,
+                           "יש בהודעה אותיות שנראות לטיניות אבל הן מאלפבית אחר: דרך להסוות כתובת מזויפת",
+                           "Some letters look Latin but come from another alphabet: a way to disguise a fake address",
+                           "אל תלחצו על הקישור. כתובת שמסווה את עצמה היא סימן ברור להונאה.",
+                           "Don't open the link. An address that disguises itself is a clear sign of fraud."))
+    if tricks["invisible_chars"]:
+        signs.append(_rule("invisible_characters", STRONG,
+                           "יש בהודעה תווים בלתי נראים בתוך מילים, כדי להטעות מערכות זיהוי",
+                           "The message hides invisible characters inside words, to fool detection systems",
+                           "אין סיבה תמימה לתווים נסתרים בתוך מילים. התייחסו להודעה כחשודה.",
+                           "There's no innocent reason for hidden characters inside words. Treat it as suspicious."))
+    if tricks["disguised_link"]:
+        signs.append(_rule("disguised_link", STRONG,
+                           "הקישור כתוב בצורה מוסווית (למשל hxxps או [.]) כדי לעקוף סינון",
+                           "The link is written in a disguised way (like hxxps or [.]) to get past filters",
+                           "אל תעתיקו את הקישור לדפדפן.",
+                           "Don't copy the link into your browser."))
+    if tricks["split_letters"]:
+        signs.append(_rule("split_letters", MEDIUM,
+                           "מילים בהודעה מפורקות לאותיות (כמו ח-ו-ב), דרך לעקוף מערכות זיהוי",
+                           "Words are broken into separate letters (like d-e-b-t), a way to get past detection",
+                           "הסוואה כזו היא סיבה לחשוד בהודעה.",
+                           "Disguising words like this is a reason to suspect the message."))
+    return signs
 
 
 def check(text, found=None):
@@ -275,6 +312,13 @@ def check(text, found=None):
                   f"A shortened link ({short[0]['host']}) hides where it really goes",
                   "קישור מקוצר יכול להוביל לכל אתר. היזהרו.",
                   "A short link can lead anywhere. Be careful."))
+
+    if _NOT_A_SCAM.search(text):
+        add(_rule("claims_not_a_scam", STRONG,
+                  "ההודעה טוענת בעצמה שהיא לא הונאה, וגופים אמיתיים כמעט אף פעם לא כותבים כך",
+                  "The message itself insists it isn't a scam, which real organizations almost never write",
+                  "הודעה שמנסה לשכנע שהיא אמינה היא סיבה לחשוד. בדקו מול הגוף עצמו.",
+                  "A message trying to convince you it's genuine is a reason for suspicion. Check with the organization."))
 
     reassuring = []
     if links and all(_is_official_gov(l["host"]) or l["host"] in _APP_STORES for l in links):
