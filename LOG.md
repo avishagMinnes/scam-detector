@@ -64,4 +64,5 @@
 - Done: bot created by user (@BotFather), webhook set with set_webhook.ps1 (after fixes: TLS, then curl instead of Invoke-RestMethod, token via temp config file deleted at once; tested with a fake token first). User's Telegram id added to telegram_allowed_users in terraform.tfvars (kept out of Git); applied
 - Done: user tested the bot with 4 test messages (scam, Hi Mom, real code SMS, disguised scam): all as expected. Cloud records: channel=telegram, results + one 👍, 0.2-0.7 s per check, no message words or links stored
 - Done: analytics views in BigQuery (infra/analytics.tf): checks_weekly, scam_types_weekly (rough type from signs), signs_weekly, feedback_weekly, signs_in_wrong_answers. Weekly totals only (small-group privacy). Verified on the 4 bot tests: types family / delivery / debt as expected
-- Next: Looker Studio dashboard on the views (user connects); add family members' ids; final test-set run; write-up
+- Done: user built the Looker Studio dashboard on the 5 views (personal account, private): scam types, weekly trend by result, top tricks, 👍/👎 by result, signs in wrong answers; hourly freshness
+- Next: send the WhatsApp message (bot + scams); add family ids; wait 2-3 weeks of use; final test-set run when ~20 test scams; IP clause before anything public; write-up
