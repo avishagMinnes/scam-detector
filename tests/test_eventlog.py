@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from api import app
-from scam_detector import classifier, eventlog
+from scam_detector import classifier, eventlog, service
 from scam_detector.ratelimit import RateLimiter
 
 needs_model = pytest.mark.skipif(not classifier.MODEL_PATH.exists(),
@@ -23,7 +23,7 @@ def records(capsys):
 @needs_model
 def test_check_record_has_no_message_content_or_address(capsys):
     client = TestClient(app)
-    app.state.limiter = RateLimiter()
+    service.limiter = RateLimiter()
     res = client.post("/api/check", json={"text": SECRET_MESSAGE},
                       headers={"x-forwarded-for": "198.51.100.23"})
     assert res.status_code == 200
@@ -35,8 +35,9 @@ def test_check_record_has_no_message_content_or_address(capsys):
     rec = recs[0]
     assert rec["risk_level"] in ("high", "medium", "low")
     assert "risky_domain_ending" in rec["signs"]
-    assert set(rec) <= {"severity", "message", "event", "risk_level", "signs", "reassuring",
-                        "model_score", "language", "latency_ms", "model"}
+    assert set(rec) <= {"severity", "message", "event", "check_id", "channel", "risk_level",
+                        "signs", "reassuring", "model_score", "language", "latency_ms", "model"}
+    assert rec["channel"] == "web" and rec["check_id"] == res.json()["check_id"]
 
 
 def test_failure_record_has_only_the_error_type(capsys):
@@ -49,7 +50,7 @@ def test_failure_record_has_only_the_error_type(capsys):
 @needs_model
 def test_rate_limited_record(capsys):
     client = TestClient(app)
-    app.state.limiter = RateLimiter(per_minute=1)
+    service.limiter = RateLimiter(per_minute=1)
     try:
         client.post("/api/check", json={"text": "Ok see you at 7"})
         capsys.readouterr()
@@ -57,4 +58,4 @@ def test_rate_limited_record(capsys):
         assert records(capsys) == [{"severity": "WARNING", "message": "rate_limited",
                                     "event": "rate_limited", "scope": "minute"}]
     finally:
-        app.state.limiter = RateLimiter()
+        service.limiter = RateLimiter()

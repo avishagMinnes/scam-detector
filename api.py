@@ -1,9 +1,10 @@
 """Web API and page server.
 
-Run:  .venv\\Scripts\\python -m uvicorn api:app --port 8000
+Run:  .venv\\Scripts\\python -m uvicorn api:app --port 8000 --no-access-log
 Then open http://localhost:8000
 
-POST /api/check     {"text": "..."} -> risk level, warning signs, advice
+POST /api/check     {"text": "..."} -> risk level, warning signs, advice, check_id
+POST /api/feedback  {"check_id": "...", "verdict": "correct"|"wrong"} -> 👍/👎 on a recent check
 GET  /api/examples  written practice examples (not real messages)
 GET  /api/health    ready check for the cloud service
 GET  /              the page in web/
@@ -14,7 +15,6 @@ Run uvicorn with --no-access-log so it doesn't log visitor addresses either.
 /api/check is rate limited per visitor and for the whole app (scam_detector/ratelimit.py;
 limits from RATE_PER_MINUTE, RATE_PER_DAY, RATE_GLOBAL_PER_DAY).
 """
-import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -24,13 +24,14 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from scam_detector import classifier, eventlog
-from scam_detector.detector import analyze
-from scam_detector.ratelimit import RateLimited, RateLimiter, client_address
+from scam_detector import classifier, eventlog, service
+from scam_detector.feedback import VERDICTS
+from scam_detector.ratelimit import RateLimited, client_address
 
 ROOT = Path(__file__).resolve().parent
 MAX_CHARS = 5000
 EXAMPLE_IDS = ["he-d01", "he-d04", "he-d05", "he-d09", "he-d10", "en-d01"]
+
 
 @asynccontextmanager
 async def lifespan(app):
@@ -41,7 +42,6 @@ async def lifespan(app):
 
 
 app = FastAPI(title="Scam message checker", docs_url=None, redoc_url=None, lifespan=lifespan)
-app.state.limiter = RateLimiter.from_env()
 
 
 @app.exception_handler(RateLimited)
@@ -54,6 +54,11 @@ def too_many(request, exc):
 
 class CheckRequest(BaseModel):
     text: str = Field(min_length=1, max_length=MAX_CHARS)
+
+
+class FeedbackRequest(BaseModel):
+    check_id: str = Field(min_length=1, max_length=64)
+    verdict: str
 
 
 @app.get("/api/health")
@@ -69,15 +74,9 @@ def check(req: CheckRequest, request: Request):
     if not classifier.MODEL_PATH.exists():
         raise HTTPException(503, "model not trained")
     peer = request.client.host if request.client else None
-    request.app.state.limiter.check(client_address(request.headers, peer))
-    started = time.perf_counter()
-    try:
-        r = analyze(req.text)
-    except Exception as error:
-        eventlog.check_failed(error)
-        raise
-    eventlog.check_done(r, (time.perf_counter() - started) * 1000, classifier.MODEL_KIND)
+    r, check_id = service.run_check(req.text, client_address(request.headers, peer), "web")
     return {
+        "check_id": check_id,
         "risk_level": r["risk_level"],
         "risk_text": r["risk_text"],
         "language": r["language"],
@@ -91,6 +90,15 @@ def check(req: CheckRequest, request: Request):
         },
         "model_score": r["model_score"],
     }
+
+
+@app.post("/api/feedback")
+def feedback(req: FeedbackRequest):
+    if req.verdict not in VERDICTS:
+        raise HTTPException(422, "verdict must be correct or wrong")
+    if not service.give_feedback(req.check_id, req.verdict, "web"):
+        raise HTTPException(409, "unknown, expired or already rated check")
+    return {"status": "thanks"}
 
 
 @app.get("/api/examples")

@@ -15,8 +15,10 @@ def _emit(severity, event, **fields):
                      ensure_ascii=False), file=sys.stdout, flush=True)
 
 
-def check_done(result, latency_ms, model_kind):
+def check_done(result, latency_ms, model_kind, check_id, channel="web"):
     _emit("INFO", "check",
+          check_id=check_id,          # random, links a later 👍/👎 to this check
+          channel=channel,            # "web" or "telegram"
           risk_level=result["risk_level"],
           signs=sorted({s["id"] for s in result["red_flags"]}),   # rule ids only, e.g. "lookalike_domain"
           reassuring=bool(result["reassuring"]),
@@ -24,6 +26,11 @@ def check_done(result, latency_ms, model_kind):
           language=result["language"],
           latency_ms=round(latency_ms),
           model=model_kind)
+
+
+def feedback(check_id, verdict, check, channel="web"):
+    _emit("INFO", "feedback", check_id=check_id, channel=channel, verdict=verdict,
+          risk_level=check["risk_level"], signs=check["signs"])
 
 
 def rate_limited(scope):

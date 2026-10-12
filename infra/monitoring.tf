@@ -65,6 +65,60 @@ resource "google_logging_metric" "check_failed" {
   }
 }
 
+resource "google_logging_metric" "feedback" {
+  name        = "scam_detector/feedback"
+  description = "👍/👎 feedback, by verdict and by the result it rated"
+  filter      = "${local.app_logs} AND jsonPayload.event=\"feedback\""
+  metric_descriptor {
+    metric_kind = "DELTA"
+    value_type  = "INT64"
+    labels {
+      key        = "verdict"
+      value_type = "STRING"
+    }
+    labels {
+      key        = "risk_level"
+      value_type = "STRING"
+    }
+  }
+  label_extractors = {
+    verdict    = "EXTRACT(jsonPayload.verdict)"
+    risk_level = "EXTRACT(jsonPayload.risk_level)"
+  }
+}
+
+# --- Keep the anonymous records beyond the 30-day log retention (Phase 6 dashboard) ---
+
+resource "google_project_service" "bigquery" {
+  service            = "bigquery.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_bigquery_dataset" "events" {
+  dataset_id  = "scam_detector_events"
+  location    = "US"
+  description = "Anonymous check / feedback / rate-limit records (no message text, no addresses)"
+  # Keep ~13 months of daily partitions, enough for trends over a year
+  default_partition_expiration_ms = 400 * 24 * 60 * 60 * 1000
+  depends_on                      = [google_project_service.bigquery]
+}
+
+resource "google_logging_project_sink" "events_to_bigquery" {
+  name                   = "scam-detector-events-to-bigquery"
+  destination            = "bigquery.googleapis.com/projects/${var.project_id}/datasets/${google_bigquery_dataset.events.dataset_id}"
+  filter                 = "${local.app_logs} AND jsonPayload.event:*"
+  unique_writer_identity = true
+  bigquery_options {
+    use_partitioned_tables = true
+  }
+}
+
+resource "google_bigquery_dataset_iam_member" "sink_writer" {
+  dataset_id = google_bigquery_dataset.events.dataset_id
+  role       = "roles/bigquery.dataEditor"
+  member     = google_logging_project_sink.events_to_bigquery.writer_identity
+}
+
 # --- Email alerts -------------------------------------------------------------------
 
 resource "google_monitoring_notification_channel" "email" {
@@ -215,6 +269,20 @@ resource "google_monitoring_dashboard" "main" {
               timeSeriesQuery = { timeSeriesFilter = {
                 filter      = "metric.type=\"run.googleapis.com/container/instance_count\" AND resource.labels.service_name=\"${google_cloud_run_v2_service.app.name}\""
                 aggregation = { alignmentPeriod = "60s", perSeriesAligner = "ALIGN_MAX", crossSeriesReducer = "REDUCE_SUM" }
+              } }
+            }] }
+          }
+        },
+        {
+          width = 12, height = 4, xPos = 0, yPos = 8
+          widget = {
+            title = "Feedback: 👍 / 👎, by the result people rated"
+            xyChart = { dataSets = [{
+              plotType = "STACKED_BAR"
+              timeSeriesQuery = { timeSeriesFilter = {
+                filter = "metric.type=\"logging.googleapis.com/user/${google_logging_metric.feedback.name}\""
+                aggregation = { alignmentPeriod = "86400s", perSeriesAligner = "ALIGN_SUM",
+                crossSeriesReducer = "REDUCE_SUM", groupByFields = ["metric.label.verdict", "metric.label.risk_level"] }
               } }
             }] }
           }

@@ -134,6 +134,11 @@
   .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .85rem;
           direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
 
+  .feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px;
+              font-size: .95rem; }
+  .feedback span[data-t="ask"] { margin-inline-end: auto; }
+  .feedback .ghost { background: var(--surface); }
+  .feedback .thanks { color: var(--muted); }
   .error { background: var(--high-bg); color: var(--high); border-radius: 12px; padding: 12px 14px; }
   footer { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 28px; }
 
@@ -209,6 +214,11 @@
       <summary data-t="found"></summary>
       <dl></dl>
     </details>
+    <div class="feedback">
+      <span data-t="ask"></span>
+      <button type="button" class="ghost" data-verdict="correct">👍 <span data-t="yes"></span></button>
+      <button type="button" class="ghost" data-verdict="wrong">👎 <span data-t="no"></span></button>
+    </div>
   </div>
 </template>
 
@@ -217,11 +227,13 @@ const T = {
   he: { signs: "סימני אזהרה", reassuring: "סימנים מרגיעים", todo: "מה לעשות", found: "מה מצאנו בהודעה",
         links: "קישורים (לא נפתחו)", phones: "מספרי טלפון", amounts: "סכומים", score: "ציון המודל",
         nothing: "לא נמצאו קישורים, טלפונים או סכומים",
+        ask: "האם התשובה נכונה?", yes: "נכון", no: "לא נכון", thanks: "תודה! זה עוזר לשפר את הבדיקה.",
         sub: { high: "יש כאן כמה סימנים מובהקים של הונאה.", medium: "יש סימנים שכדאי לבדוק לפני שעושים משהו.",
                low: "לא מצאנו סימנים מוכרים של הונאה." } },
   en: { signs: "Warning signs", reassuring: "Reassuring signs", todo: "What to do", found: "What we found",
         links: "Links (not opened)", phones: "Phone numbers", amounts: "Amounts", score: "Model score",
         nothing: "No links, phone numbers or amounts found",
+        ask: "Is this answer right?", yes: "Yes", no: "No", thanks: "Thanks! This helps improve the checker.",
         sub: { high: "There are clear signs of a scam here.", medium: "There are signs worth checking before you act.",
                low: "We didn't find known scam signs." } },
 };
@@ -281,6 +293,18 @@ function render(r) {
   add(t.amounts, f.amounts, false);
   if (!f.links.length && !f.phones.length && !f.amounts.length) add(t.found, [t.nothing], false);
   add(t.score, [r.model_score.toFixed(2)], true);
+
+  const fb = $(".feedback", node);
+  fb.querySelectorAll("button").forEach(b => b.addEventListener("click", async () => {
+    fb.querySelectorAll("button").forEach(x => x.disabled = true);
+    try {
+      await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ check_id: r.check_id, verdict: b.dataset.verdict }) });
+    } catch { /* thanks either way: feedback is optional */ }
+    const done = document.createElement("span");
+    done.className = "thanks"; done.textContent = t.thanks;
+    fb.replaceChildren(done);
+  }));
 
   result.replaceChildren(node);
   result.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });

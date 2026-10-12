@@ -2,7 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from api import app
-from scam_detector import classifier
+from scam_detector import classifier, service
 from scam_detector.ratelimit import RateLimiter
 
 client = TestClient(app)
@@ -40,8 +40,8 @@ def test_rejects_empty_and_too_long():
 
 @needs_model
 def test_check_is_rate_limited():
-    original = app.state.limiter
-    app.state.limiter = RateLimiter(per_minute=2, per_day=100, global_per_day=100)
+    original = service.limiter
+    service.limiter = RateLimiter(per_minute=2, per_day=100, global_per_day=100)
     try:
         body = {"text": "Ok see you at 7"}
         assert client.post("/api/check", json=body).status_code == 200
@@ -51,7 +51,7 @@ def test_check_is_rate_limited():
         assert res.json()["scope"] == "minute"
         assert int(res.headers["Retry-After"]) > 0
     finally:
-        app.state.limiter = original
+        service.limiter = original
 
 
 def test_examples_are_drafts_only():
