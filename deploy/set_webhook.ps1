@@ -6,6 +6,8 @@
 # "scam-detector" gcloud configuration, and calls Telegram's setWebhook.
 
 $ErrorActionPreference = "Stop"
+# Windows PowerShell 5 defaults to old TLS versions that Telegram refuses
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $Gcloud = "$env:LOCALAPPDATA\Google\google-cloud-sdk\bin\gcloud.cmd"
 $Config = "--configuration=scam-detector"
 
