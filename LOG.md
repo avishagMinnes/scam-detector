@@ -67,4 +67,5 @@
 - Done: user built the Looker Studio dashboard on the 5 views (personal account, private): scam types, weekly trend by result, top tricks, 👍/👎 by result, signs in wrong answers; hourly freshness
 - Done: write-up draft (Claude doc) with architecture diagram and attack chart; [FINAL] placeholders for the last test-set run
 - Added 3 real scams from screenshots (2026-10-12): fake Highway 6 debt (did.li), and 2 more of the Enforcement Authority campaign with rotated domains (govkom.de, theguvlin.es; same group as he-p097). All 3 landed in the TEST set (13 test scams now). Not used for any tuning. GOLD-TAX tax-refund message waits for the user's label
-- Next: send the WhatsApp message (bot + scams); add family ids; final test-set run at ~20 test scams; IP clause; write-up numbers
+- Added he-w034 (family member's phone): real MAX gift card via online.max.co.il, legit hard case -> TEST. Skipped 4 party ads from the same batch (enough party/bar marketing; Google Messages had marked them spam: spam is not scam)
+- Next: GOLD-TAX label from the user; send the WhatsApp message (bot + scams); add family ids; final test-set run at ~20 test scams; IP clause; write-up numbers
