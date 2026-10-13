@@ -73,3 +73,4 @@
 - Bot: second approved Telegram user added (2 in total; ids only in terraform.tfvars, kept out of Git)
 - Added 2 pasted scams: lottery prize ('reply with your name') -> train; cannabis 'VIP pharmacy' (weedil.shop) -> TEST (14 test scams). Retrained: real-message AUC 0.89, cutoffs 0.66 / 0.78. Smoking-tips spam (goo.gl) waits for the user's label
 - Added he-x003 smoking-tips spam (goo.gl), user label legit -> train; retrained
+- Added 6 from a family member's phone (2026-10-13): 2 scams (counterfeit goods sent from a saved contact = likely hijacked account; 'a message is waiting' .online lure) + 4 legit refund marketing -> 5 train / 1 test. Skipped a duplicate casino ad. Loan ad (CHESAFIM) waits for the user's label. Retrained

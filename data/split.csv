@@ -132,3 +132,9 @@ he-w035,test,he-w035
 he-x001,train,he-x001
 he-x002,test,he-x002
 he-x003,train,he-x003
+he-y001,train,he-y001
+he-y002,train,he-y002
+he-y003,train,tax_refund_average
+he-y004,train,tax_refund_average
+he-y005,test,he-w035
+he-y006,train,he-y006

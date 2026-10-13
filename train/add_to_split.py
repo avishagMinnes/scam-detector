@@ -30,6 +30,9 @@ SAME_TEMPLATE_AS = {
     "he-w028": "ontopo", "he-w029": "ontopo", "he-w030": "ontopo",
     # screenshots 2026-10-12: same Enforcement Authority campaign, new domains
     "he-w032": "he-p097", "he-w033": "he-p097",
+    # screenshots 2026-10-13 (family member)
+    "he-y003": "tax_refund_average", "he-y004": "tax_refund_average",
+    "he-y005": "he-w035",                                # GOLD-TAX, same sender/domain
 }
 
 
