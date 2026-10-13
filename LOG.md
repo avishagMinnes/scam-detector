@@ -77,3 +77,4 @@
 - Added he-y007 CHESAFIM loan ad, user label legit -> TEST
 - Bot: third approved Telegram user added (3 in total)
 - Bot: replaced the third approved Telegram user (user's request); still 3 approved
+- Added 3 real scams (screenshots 2026-10-13): Highway 6 'final notice' (snip.ly) -> train, Carmel Tunnels 'final notice' (tinyurl) -> train, delivery fee 6.21 NIS (cutt.ly/IsraelP0ST) -> TEST. Checked similarity first: max 0.27 to a published example (same amount, different wording), so no grouping. 15 test scams. Retrained: real-message AUC 0.89
