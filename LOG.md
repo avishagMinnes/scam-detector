@@ -76,3 +76,4 @@
 - Added 6 from a family member's phone (2026-10-13): 2 scams (counterfeit goods sent from a saved contact = likely hijacked account; 'a message is waiting' .online lure) + 4 legit refund marketing -> 5 train / 1 test. Skipped a duplicate casino ad. Loan ad (CHESAFIM) waits for the user's label. Retrained
 - Added he-y007 CHESAFIM loan ad, user label legit -> TEST
 - Bot: third approved Telegram user added (3 in total)
+- Bot: replaced the third approved Telegram user (user's request); still 3 approved
