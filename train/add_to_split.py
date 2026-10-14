@@ -33,6 +33,8 @@ SAME_TEMPLATE_AS = {
     # screenshots 2026-10-13 (family member)
     "he-y003": "tax_refund_average", "he-y004": "tax_refund_average",
     "he-y005": "he-w035",                                # GOLD-TAX, same sender/domain
+    "he-z006": "he-z003",                                # Carmel Tunnels, same campaign
+    "he-z007": "he-p081",                                # Highway 6 enforcement, reworded
 }
 
 
