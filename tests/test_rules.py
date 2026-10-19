@@ -126,6 +126,18 @@ def test_official_gov_link_is_reassuring():
     assert [r["id"] for r in reassuring] == ["official_links_only"]
 
 
+def test_speaks_as_government_with_private_link():
+    assert "government_sender_unofficial_link" in ids("רשות המסים מודיעה: נמצא לך החזר. לבדיקה: https://refund-check.biz/a")
+    assert "government_sender_unofficial_link" in ids("Ministry of finance: claim your refund https://claim-now.top/x")
+
+
+def test_government_mentioned_or_official_link_is_fine():
+    # Mentioning a body isn't speaking as it
+    assert "government_sender_unofficial_link" not in ids("כנראה שמגיע לך כסף ממס הכנסה, בדקו כאן https://example.co.il/a")
+    # Speaking as a body with a gov.il link is how real notices look
+    assert "government_sender_unofficial_link" not in ids("ביטוח לאומי: הגמלה הופקדה. לפרטים https://www.btl.gov.il")
+
+
 def test_every_sign_has_both_languages():
     signs, _ = check("זכית! שלם 4.90 ש\"ח דחוף https://bit.ly/x https://paypa1-gov.ru/a חבילה נעצרה")
     assert len(signs) >= 5

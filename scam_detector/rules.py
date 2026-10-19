@@ -80,6 +80,13 @@ _OFFICIAL_DELIVERY = {"israelpost.co.il", "dhl.com", "dhl.co.il", "ups.com", "fe
 _TOO_GOOD = _any(r"\d+% .{0,30}(רווח|תשואה|הרוויח)|הרוויחו מעל|תשואה מובטחת|רווח מובטח|"
                  r"earn \$?\d[\d,]*.{0,12}(/day|per day|a day|daily|/week|per week)|guaranteed (returns|profit|income)")
 
+# The message speaks *as* a government body ("משרד האוצר מתזכר:", "רשות המסים:"), not
+# just mentions one ("כסף שמגיע לך ממס הכנסה"). Israeli government bodies don't send
+# links outside gov.il.
+_GOV_BODY = (r"משרד ה(אוצר|תחבורה|פנים|בריאות|ביטחון|רווחה|משפטים)|רשות המסים|מס הכנסה|"
+             r"(ה)?ביטוח (ה)?לאומי|רשות האכיפה והגבייה|(ה)?הוצאה לפועל|משטרת ישראל|נתיבי ישראל|"
+             r"israel tax authority|national insurance( institute)?|ministry of [a-z]+")
+_SPEAKS_AS_GOV = _any(rf"(^|\n)\W*({_GOV_BODY})\W*(:|מתזכר|מזכיר|מודיע|מעדכן|מבקש|reminds|informs)")
 _OUR_RECORDS = _any(r"לפי נתונים|מרישומי|בהתאם לרישומי|נמצאת זכאי|הינך זכאי|לפי הרישומים|"
                     r"according to our records|our records show")
 
@@ -297,6 +304,13 @@ def check(text, found=None):
                   "Claims you won a prize",
                   "אם לא השתתפתם בהגרלה, לא זכיתם. אל תשלמו 'דמי טיפול'.",
                   "If you didn't enter, you didn't win. Don't pay any 'processing fee'."))
+
+    if _SPEAKS_AS_GOV.search(text) and links and not all(_is_official_gov(l["host"]) for l in links):
+        add(_rule("government_sender_unofficial_link", STRONG,
+                  "ההודעה מוצגת כאילו נשלחה מגוף ממשלתי, אבל הקישור אינו לאתר ממשלתי (gov.il)",
+                  "The message presents itself as coming from a government body, but the link isn't a government (gov.il) site",
+                  "גופי ממשלה לא שולחים קישורים לאתרים פרטיים. בדקו באתר הרשמי שמסתיים ב-gov.il.",
+                  "Government bodies don't send links to private sites. Check on the official site ending in gov.il."))
 
     if _OUR_RECORDS.search(text):
         add(_rule("claims_official_records", MEDIUM,
