@@ -33,7 +33,7 @@ from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from scam_detector.classifier import (MODEL_FILES, MODEL_KIND, clean_text, parts,  # noqa: E402
+from scam_detector.classifier import (MODEL_FILES, MODEL_KIND, clean_text, message_score, parts,  # noqa: E402
                                       reader_text)
 
 DATA = ROOT / "data"
@@ -113,12 +113,12 @@ def part_matrix(df, kind="tfidf"):
         X = _embed_cached([reader_text(p) for p in pieces])
     else:
         X = np.array([clean_text(p) for p in pieces], dtype=object)
-    return X, owner
+    return X, owner, pieces
 
 
 def features(df, kind="tfidf"):
     """Whole-message features (what the model is trained on)."""
-    X, owner = part_matrix(df, kind)
+    X, owner, _ = part_matrix(df, kind)
     first = np.r_[0, np.flatnonzero(np.diff(owner)) + 1]
     return X[first]
 
@@ -132,7 +132,7 @@ def choose_threshold(y, prob, max_false_alarms=MAX_FALSE_ALARM_RATE):
 def out_of_fold_probabilities(df, groups, kind=MODEL_KIND):
     """Each message scored by a model that never saw it (or its template) in training,
     the way the app scores: the highest score of the whole message and its parts."""
-    X, owner = part_matrix(df, kind)
+    X, owner, pieces = part_matrix(df, kind)
     first = np.r_[0, np.flatnonzero(np.diff(owner)) + 1]
     X_whole, y = X[first], df.y.values
     prob = np.zeros(len(df))
@@ -141,8 +141,10 @@ def out_of_fold_probabilities(df, groups, kind=MODEL_KIND):
         model = make_model(kind).fit(X_whole[train_idx], y[train_idx])
         rows = np.isin(owner, test_idx)
         part_prob = model.predict_proba(X[rows])[:, 1]
+        row_pieces = [p for p, r in zip(pieces, rows) if r]
         for i in test_idx:
-            prob[i] = part_prob[owner[rows] == i].max()
+            mine = np.flatnonzero(owner[rows] == i)
+            prob[i] = message_score([row_pieces[k] for k in mine], part_prob[mine])
     return prob
 
 

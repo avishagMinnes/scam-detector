@@ -30,6 +30,21 @@ def test_combine(prob, signs, reassuring, expected):
     assert combine(prob, CUT, HIGH_CUT, signs, reassuring) == expected
 
 
+def test_short_paragraphs_of_long_messages_are_parts():
+    pad = "שבוע טוב לכל המשפחה, מזג האוויר נעים היום ומחר צפויים גשמים קלים באזור המרכז. " * 2
+    pieces = classifier.parts(f"{pad}\n\nאמא, זה המספר החדש שלי\n\n{pad}")
+    assert "אמא, זה המספר החדש שלי" in pieces
+    assert classifier.parts("הודעה קצרה\n\nעוד שורה") == ["הודעה קצרה\n\nעוד שורה"]
+
+
+def test_short_parts_count_only_when_near_certain():
+    whole, large, short = "x" * 400, "y" * 200, "z" * 30
+    trust = classifier.SHORT_PART_TRUST
+    assert classifier.message_score([whole, large, short], [0.1, 0.2, trust - 0.1]) == 0.2
+    assert classifier.message_score([whole, large, short], [0.1, 0.2, trust]) == trust
+    assert classifier.message_score([short], [0.5]) == 0.5   # a short whole message counts as is
+
+
 def test_detect_language():
     assert detect_language("לקוח יקר, הכרטיס שלך נחסם https://x.com") == "he"
     assert detect_language("Your package is waiting") == "en"

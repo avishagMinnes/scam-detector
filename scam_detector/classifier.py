@@ -37,20 +37,27 @@ _SENTENCE = re.compile(r"\n+|(?<=[!?])\s+|(?<=[א-תA-Za-z)\"'][.])\s+")
 # sizes AUC stays 0.89 and padded scams are caught as often as plain ones (LOG.md).
 LONG_MESSAGE = 300   # shorter messages are scored as a whole only
 MIN_PART = 160       # paragraphs / sentence groups shorter than this aren't scored alone
+# A short scam wrapped in harmless paragraphs never reaches MIN_PART on its own, so
+# short paragraphs of long messages are scored too, but they count only when the model
+# is near-certain: their middling scores are noise (the MIN_PART=60 lesson above).
+MIN_SHORT_PART = 20
+SHORT_PART_TRUST = 0.95
 
 
 def parts(text):
     """The whole message, then (for longer messages) its paragraphs and sentence groups.
 
-    The model scores every part and keeps the highest score, so harmless text wrapped
-    around a scam can't dilute it (Phase 5 "padding" attack). train.py chooses the
+    The model scores every part and keeps the highest score (message_score), so
+    harmless text wrapped around a scam can't dilute it (Phase 5 "padding" attack).
+    Short paragraphs come last. train.py chooses the
     cutoffs with the same max-over-parts scoring, so legit messages aren't penalized.
     """
     text = normalize(text)[0].strip()
     if len(text) < LONG_MESSAGE:
         return [text]
     found = [text]
-    paragraphs = [p.strip() for p in _PARAGRAPH.split(text) if len(p.strip()) >= MIN_PART]
+    all_paragraphs = [p.strip() for p in _PARAGRAPH.split(text) if p.strip()]
+    paragraphs = [p for p in all_paragraphs if len(p) >= MIN_PART]
     if len(paragraphs) > 1:
         found += paragraphs
     group = ""
@@ -63,7 +70,21 @@ def parts(text):
             group = ""
     if group and len(found) > 1:
         found[-1] = f"{found[-1]} {group}"
+    found += [p for p in all_paragraphs if MIN_SHORT_PART <= len(p) < MIN_PART]
     return list(dict.fromkeys(found))   # drop exact repeats, keep order
+
+
+def message_score(pieces, probs):
+    """One score for a message from the scores of its parts (same order as parts()).
+
+    The whole message and large parts count as they are; a short part (see
+    SHORT_PART_TRUST) counts only when the model is near-certain about it.
+    """
+    best = 0.0
+    for i, (piece, prob) in enumerate(zip(pieces, probs)):
+        if i == 0 or len(piece) >= MIN_PART or prob >= SHORT_PART_TRUST:
+            best = max(best, float(prob))
+    return best
 
 
 def clean_text(text):
@@ -93,8 +114,9 @@ def part_features(kind, pieces):
 def scam_probability(text):
     """Model score (0-1): the highest score of the whole message and its parts."""
     saved = _load()
-    features = part_features(saved.get("kind", "tfidf"), parts(text))
-    return float(saved["model"].predict_proba(features)[:, 1].max())
+    pieces = parts(text)
+    features = part_features(saved.get("kind", "tfidf"), pieces)
+    return message_score(pieces, saved["model"].predict_proba(features)[:, 1])
 
 
 def warm_up():
