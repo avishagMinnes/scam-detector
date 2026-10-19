@@ -87,6 +87,17 @@ _GOV_BODY = (r"משרד ה(אוצר|תחבורה|פנים|בריאות|ביטח�
              r"(ה)?ביטוח (ה)?לאומי|רשות האכיפה והגבייה|(ה)?הוצאה לפועל|משטרת ישראל|נתיבי ישראל|"
              r"israel tax authority|national insurance( institute)?|ministry of [a-z]+")
 _SPEAKS_AS_GOV = _any(rf"(^|\n)\W*({_GOV_BODY})\W*(:|מתזכר|מזכיר|מודיע|מעדכן|מבקש|reminds|informs)")
+# Selling drugs by text: cannabis slang ("רפואי" sold by the bag or strain, not "ביטוח
+# רפואי") and prescription drugs without a prescription. Legal pharmacies and licensed
+# medical cannabis don't advertise by SMS with a WhatsApp/Telegram contact.
+_DRUGS = _any(r"קנאביס|(?<![א-ת])גראס|(?<![א-ת])וויד(?![א-ת])|חשיש|טלגראס|"
+              r"(שקית|שקיות|זנים|גרם|\d+ ?ג'?(?![א-ת])|חממה)\W{0,3}(של\W)?רפואי|"
+              r"רפואי\W{0,3}(פרימיום|איכותי|במלאי|ב-?\d)|ללא מרשם|בלי מרשם|"
+              r"cannabis|marijuana|\bweed\b|\bthc\b|without (a )?prescription|no prescription")
+# Gambling: illegal in Israel outside the state lottery and sports-betting operator
+_GAMBLING = _any(r"קזינו|הימורי|הימורים|(?<![א-ת])בט(?![א-ת])|ספינים|בונוס (הפקדה|הצטרפות|ראשון)|"
+                 r"הפקדה (ראשונה|מינימלית)|"
+                 r"casino|betting|sportsbook|free spins|deposit bonus|\bslots?\b")
 _OUR_RECORDS = _any(r"לפי נתונים|מרישומי|בהתאם לרישומי|נמצאת זכאי|הינך זכאי|לפי הרישומים|"
                     r"according to our records|our records show")
 
@@ -311,6 +322,21 @@ def check(text, found=None):
                   "The message presents itself as coming from a government body, but the link isn't a government (gov.il) site",
                   "גופי ממשלה לא שולחים קישורים לאתרים פרטיים. בדקו באתר הרשמי שמסתיים ב-gov.il.",
                   "Government bodies don't send links to private sites. Check on the official site ending in gov.il."))
+
+    contact = links or found["phones"]
+    if _DRUGS.search(text) and contact:
+        add(_rule("drug_sales", STRONG,
+                  "פרסומת למכירת סמים או תרופות ללא מרשם",
+                  "An ad selling drugs or medicine without a prescription",
+                  "זו מכירה לא חוקית. לעיתים קרובות לוקחים את הכסף ולא שולחים דבר, ואין לכם למי לפנות.",
+                  "This is an illegal sale. Often they take the money and send nothing, and you have no one to turn to."))
+
+    if _GAMBLING.search(text) and contact:
+        add(_rule("gambling_ad", STRONG,
+                  "פרסומת לאתר הימורים",
+                  "An ad for a gambling site",
+                  "אתרי הימורים בישראל אינם חוקיים (מלבד מפעל הפיס והטוטו). כסף שתפקידו שם קשה מאוד לקבל בחזרה.",
+                  "Gambling sites are illegal in Israel (apart from the state lottery and Toto). Money you deposit there is very hard to get back."))
 
     if _OUR_RECORDS.search(text):
         add(_rule("claims_official_records", MEDIUM,

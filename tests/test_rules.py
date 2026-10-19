@@ -138,6 +138,28 @@ def test_government_mentioned_or_official_link_is_fine():
     assert "government_sender_unofficial_link" not in ids("ביטוח לאומי: הגמלה הופקדה. לפרטים https://www.btl.gov.il")
 
 
+def test_drug_sales():
+    assert "drug_sales" in ids("שקית רפואי ב-250₪ כולל משלוח עד הבית https://wa.me/972500000000")
+    assert "drug_sales" in ids("גראס איכותי, זנים חדשים במלאי, הזמנות בטלגרם https://t.me/example")
+    assert "drug_sales" in ids("תרופות ללא מרשם עד הבית 050-0000000")
+
+
+def test_medical_words_are_not_drugs():
+    assert "drug_sales" not in ids("ביטוח רפואי במחיר מיוחד https://example.co.il/a")
+    assert "drug_sales" not in ids("המרכז הרפואי מזכיר: תור לרופא מחר ב-10:00 https://example.co.il/a")
+    assert "drug_sales" not in ids("זנים חדשים של עגבניות במלאי במשתלה https://example.co.il/a")
+    assert "drug_sales" not in ids("גרם המדרגות בבניין ייצבע מחר, הודעת ועד הבית")
+
+
+def test_gambling_ad():
+    assert "gambling_ad" in ids("קזינו אונליין: בונוס הפקדה 200% וספינים חינם https://win-big.example/x")
+    assert "gambling_ad" in ids("Best sports betting odds, deposit bonus today https://bet.example/x")
+
+
+def test_political_gamble_metaphor_is_not_gambling():
+    assert "gambling_ad" not in ids("על העתיד של הילדים שלנו אנחנו לא מהמרים https://example.co.il/a")
+
+
 def test_every_sign_has_both_languages():
     signs, _ = check("זכית! שלם 4.90 ש\"ח דחוף https://bit.ly/x https://paypa1-gov.ru/a חבילה נעצרה")
     assert len(signs) >= 5
