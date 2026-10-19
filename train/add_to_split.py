@@ -35,6 +35,8 @@ SAME_TEMPLATE_AS = {
     "he-y005": "he-w035",                                # GOLD-TAX, same sender/domain
     "he-z006": "he-z003",                                # Carmel Tunnels, same campaign
     "he-z007": "he-p081",                                # Highway 6 enforcement, reworded
+    "he-z015": "he-z003",                                # Carmel Tunnels, same text as he-z006
+    "he-z018": "he-z017",                                # Highway 6 'אזהרה' template
 }
 
 
