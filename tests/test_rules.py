@@ -45,6 +45,20 @@ def test_hi_mom():
     assert {"new_number", "money_transfer_request"} <= found
 
 
+def test_hi_mom_other_wordings():
+    assert "new_number" in ids("Hey Mum it's me. I got a new phone number, you can delete the old one")
+    assert "new_number" in ids("Hi Mum, please ring me, I've dropped my phone and shattered the screen")
+    assert "new_number" in ids("היי אמא, קניתי טלפון חדש, תשמרי את המספר")
+
+
+def test_confirm_details_and_limited_account():
+    assert "verify_details" in ids("אנא אשרו את נתוני האשראי שלכם מטעמי אבטחה")
+    assert "threat" in ids("חשבונך יוגבל בתוך 48 שעות")
+    # "אשר" also means "which"; a normal RSVP isn't a request for details
+    assert "verify_details" not in ids("הכרטיס אשר הזמנת מחכה לך בקופה")
+    assert "verify_details" not in ids("נא לאשר את הגעתכם לאירוע עד יום חמישי")
+
+
 def test_bank_verify_without_link():
     assert "verify_details" in ids("התראה: בוצעה בקשה להעברת כספים. אם לא ביצעת את הפעולה, יש לאמת את זהותך באופן מיידי.")
 

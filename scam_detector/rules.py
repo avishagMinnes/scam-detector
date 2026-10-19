@@ -48,10 +48,12 @@ _PAY_ORDER = _any(r"(יש|נא|חובה|עליך|יש לך) (לשלם|להסדי
                   r"complete (your|the) payment")
 _FREE = _any(r"ללא תשלום|ללא עלות|ללא התחייבות|בחינם|free of charge|no charge|\bfree\b")
 
-_VERIFY = _any(r"לאמת|אימות|אמתו|עדכן את|לעדכן|עדכנו|להזין|הזינו|\bverify|confirm your|update your|validate")
-_VERIFY_WHAT = _any(r"זהות|פרטי|כתובת|חשבון|כרטיס|identity|details|account|address|\bcard\b")
+# "אשר" alone also means "which", so only the imperative / infinitive with "את" counts
+_VERIFY = _any(r"לאמת|אימות|אמתו|עדכן את|לעדכן|עדכנו|להזין|הזינו|(אשרו|אנא אשר|לאשר) את|"
+               r"\bverify|confirm your|update your|validate")
+_VERIFY_WHAT = _any(r"זהות|פרטי|נתוני|כתובת|חשבון|כרטיס|identity|details|account|address|\bcard\b")
 _BLOCKED = _any(r"נחסם|חסום|ייחסם|יושעה|הושעה|הוקפא|הוצאה לפועל|יוחזר|תוחזר|יועבר לבית המשפט|"
-                r"רישיון .{0,25}(מוגבל|יוגבל|ייפסל|יישלל)|השלכות משפטיות|"
+                r"(רישיון|חשבון|חשבונך|כרטיס|כרטיסך) .{0,25}(מוגבל|יוגבל|ייפסל|יישלל)|השלכות משפטיות|"
                 r"\bblocked|suspended|\blocked\b|deactivat|will be closed|permanent closure|legal action")
 
 _URGENT = _any(r"דחוף|באופן מיידי|מיידי|בהקדם|עוד היום|תוך \d+ ?(שעות|ש')|24 ש|הזדמנות אחרונה|מסתיימת היום|"
@@ -66,8 +68,10 @@ _ENABLE_LINK = _any(r"(להשיב|השיבו|השב|reply|respond)\W{0,3}(עם\W
 _MONEY_REQUEST = _any(r"להעביר (לי )?(כסף|תשלום)|צריך להעביר|תעביר(י)? לי|העברה דחופה|"
                       r"(לקנות|תקנה|תקני|קנה|קני) .{0,15}(כרטיס מתנה|גיפט ?קארד)|"
                       r"transfer (the )?money|send (me )?money|(buy|purchase) .{0,15}gift ?cards?|wire (the )?money")
-_NEW_NUMBER = _any(r"המספר החדש שלי|זה המספר החדש|מספר חדש שלי|החלפתי מספר|הטלפון (שלי )?(נפל|נשבר|נגנב|הלך)|"
-                   r"lost my phone|new number|my phone (broke|is broken)")
+_NEW_NUMBER = _any(r"המספר החדש שלי|זה המספר החדש|מספר חדש שלי|החלפתי מספר|"
+                   r"הטלפון (שלי )?(נפל|נשבר|נגנב|הלך|התקלקל)|(קניתי|יש לי) (טלפון|מכשיר) חדש|"
+                   r"lost my phone|new (phone )?number|got a new phone|my phone (broke|is broken)|"
+                   r"(dropped|broke|smashed|cracked) my phone|(shattered|smashed|cracked) the screen")
 
 _PRIZE = _any(r"זכית|זכיתם|נבחרת לקבל|נבחרתם|you have won|you've won|\byou won|you('re| are) (a |the )?winner|"
               r"\bwinner!|awarded|selected to receive|guaranteed .{0,25}prize")

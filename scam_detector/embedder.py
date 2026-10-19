@@ -45,12 +45,17 @@ def embed(texts):
     """List of messages -> array of shape (len(texts), 768)."""
     import torch
     tok, model = _load()
+    # Batch texts of similar length together: padding short ones up to a long one in
+    # the same batch wastes most of the time (word windows are short, the message long)
+    order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
     out = []
     with torch.no_grad():
-        for i in range(0, len(texts), BATCH):
-            batch = tok(list(texts[i:i + BATCH]), padding=True, truncation=True,
+        for i in range(0, len(order), BATCH):
+            batch = tok([texts[j] for j in order[i:i + BATCH]], padding=True, truncation=True,
                         max_length=MAX_TOKENS, return_tensors="pt")
             hidden = model(**batch).last_hidden_state
             mask = batch["attention_mask"].unsqueeze(-1)
             out.append(((hidden * mask).sum(1) / mask.sum(1)).numpy())
-    return np.vstack(out)
+    vectors = np.empty((len(texts), out[0].shape[1]), dtype=out[0].dtype)
+    vectors[order] = np.vstack(out)
+    return vectors

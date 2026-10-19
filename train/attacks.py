@@ -94,6 +94,12 @@ def padding(text, rng):
     return f"{pad}\n\n{text}\n\n{pad}"
 
 
+def inline_padding(text, rng):
+    """Padding on the same line: no blank lines that would separate the scam."""
+    pad = PADDING[_lang(text)]
+    return f"{pad} {' '.join(text.split())} {pad}"
+
+
 def reassurance(text, rng):
     """'This is official, not a scam': aimed at talking the score down."""
     note = REASSURANCE[_lang(text)]
@@ -108,7 +114,8 @@ def combined(text, rng):
 
 
 ATTACKS = {f.__name__: f for f in
-           (zero_width, homoglyphs, broken_links, spaced_words, padding, reassurance, combined)}
+           (zero_width, homoglyphs, broken_links, spaced_words, padding, inline_padding,
+            reassurance, combined)}
 
 
 def attack(name, text, seed):

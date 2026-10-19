@@ -1,0 +1,5238 @@
+{
+ "label": "after-inline-fix",
+ "date": "2026-10-19",
+ "base_messages": 81,
+ "per_attack": {
+  "zero_width": {
+   "n": 81,
+   "evaded": 0,
+   "downgraded": 0
+  },
+  "homoglyphs": {
+   "n": 81,
+   "evaded": 0,
+   "downgraded": 0
+  },
+  "broken_links": {
+   "n": 81,
+   "evaded": 0,
+   "downgraded": 0
+  },
+  "spaced_words": {
+   "n": 81,
+   "evaded": 3,
+   "downgraded": 8
+  },
+  "padding": {
+   "n": 81,
+   "evaded": 6,
+   "downgraded": 14
+  },
+  "inline_padding": {
+   "n": 81,
+   "evaded": 17,
+   "downgraded": 37
+  },
+  "reassurance": {
+   "n": 81,
+   "evaded": 0,
+   "downgraded": 2
+  },
+  "combined": {
+   "n": 81,
+   "evaded": 0,
+   "downgraded": 0
+  }
+ },
+ "total": {
+  "n": 648,
+  "evaded": 26,
+  "downgraded": 61
+ },
+ "rows": [
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p007",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p008",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p017",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p039",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p040",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-p041",
+   "origin": "real",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p045",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p054",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p065",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p069",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p071",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p075",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p076",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p079",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p081",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p088",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p094",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-p096",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s001",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s002",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-s003",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-x001",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-y001",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-y002",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z001",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z003",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z005",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z006",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z007",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z010",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z015",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z017",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z018",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-z020",
+   "origin": "real",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d01",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d02",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d03",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d04",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d05",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d06",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d07",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-d08",
+   "origin": "draft",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d01",
+   "origin": "draft",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d02",
+   "origin": "draft",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-d03",
+   "origin": "draft",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web001",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web002",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web003",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web004",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web005",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web006",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web007",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web008",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web009",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web010",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web011",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web012",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web013",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web014",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web015",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web016",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web017",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web018",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web019",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web020",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web021",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web022",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web023",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web024",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web025",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web026",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web027",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web028",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web029",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web030",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "medium"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web031",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web032",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "zero_width",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "homoglyphs",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "broken_links",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "spaced_words",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "padding",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "inline_padding",
+   "before": "high",
+   "after": "low"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "reassurance",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "he-web033",
+   "origin": "web",
+   "language": "he",
+   "attack": "combined",
+   "before": "high",
+   "after": "high"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web034",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web035",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "zero_width",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "homoglyphs",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "broken_links",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "spaced_words",
+   "before": "medium",
+   "after": "low"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "inline_padding",
+   "before": "medium",
+   "after": "medium"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "reassurance",
+   "before": "medium",
+   "after": "high"
+  },
+  {
+   "id": "en-web037",
+   "origin": "web",
+   "language": "en",
+   "attack": "combined",
+   "before": "medium",
+   "after": "high"
+  }
+ ]
+}
