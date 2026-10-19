@@ -1,0 +1,681 @@
+{
+ "date": "2026-10-19",
+ "cutoff": 0.7772563099861145,
+ "high_cutoff": 0.8899040818214417,
+ "n_scams": 21,
+ "n_legit": 33,
+ "summary": {
+  "model_only": {
+   "scams_flagged": 8,
+   "scams_high": 7,
+   "legit_flagged": 2,
+   "legit_high": 1
+  },
+  "rules_only": {
+   "scams_flagged": 12,
+   "scams_high": 3,
+   "legit_flagged": 3,
+   "legit_high": 0
+  },
+  "combined": {
+   "scams_flagged": 14,
+   "scams_high": 9,
+   "legit_flagged": 5,
+   "legit_high": 1
+  }
+ },
+ "per_message": [
+  {
+   "id": "he-p004",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.562,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p005",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.115,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "urgency",
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-p006",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.016,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p011",
+   "label": "scam",
+   "scam_type": "financial_offer",
+   "language": "he",
+   "score": 0.816,
+   "combined": "medium",
+   "model_only": "medium",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p012",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.163,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-p014",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.788,
+   "combined": "medium",
+   "model_only": "medium",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p015",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.16,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p018",
+   "label": "scam",
+   "scam_type": "delivery",
+   "language": "he",
+   "score": 0.043,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "delivery_problem_link"
+   ]
+  },
+  {
+   "id": "he-p023",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.08,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p024",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.502,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p026",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.018,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-p032",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.04,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "app_download_link",
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-p033",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.02,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p035",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.954,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p048",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.144,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p049",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.124,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p053",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.613,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "app_download_link"
+   ]
+  },
+  {
+   "id": "he-p059",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.75,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "claims_official_records"
+   ]
+  },
+  {
+   "id": "he-p060",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.151,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p061",
+   "label": "scam",
+   "scam_type": "delivery",
+   "language": "he",
+   "score": 0.35,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "delivery_problem_link"
+   ]
+  },
+  {
+   "id": "he-p062",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.198,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p070",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.295,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p074",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.205,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "en-p077",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "en",
+   "score": 0.184,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p078",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.06,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p080",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.025,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p082",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.038,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "urgency"
+   ]
+  },
+  {
+   "id": "he-p083",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.711,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p085",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.453,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "urgency"
+   ]
+  },
+  {
+   "id": "he-p086",
+   "label": "scam",
+   "scam_type": "bank_impersonation",
+   "language": "he",
+   "score": 1.0,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "medium",
+   "signs": [
+    "verify_details",
+    "threat"
+   ]
+  },
+  {
+   "id": "he-p095",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.045,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-p097",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.723,
+   "combined": "high",
+   "model_only": "low",
+   "rules_only": "high",
+   "signs": [
+    "lookalike_domain",
+    "risky_domain_ending",
+    "payment_via_link",
+    "claims_official_records"
+   ]
+  },
+  {
+   "id": "he-w002",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.024,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w005",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.052,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w006",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.043,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w011",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.172,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w013",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.401,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w031",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.975,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w032",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.91,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "high",
+   "signs": [
+    "lookalike_domain",
+    "payment_via_link",
+    "claims_official_records"
+   ]
+  },
+  {
+   "id": "he-w033",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.919,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "medium",
+   "signs": [
+    "payment_via_link",
+    "claims_official_records"
+   ]
+  },
+  {
+   "id": "he-w034",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.12,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-w035",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.358,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-x002",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.066,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "risky_domain_ending",
+    "urgency"
+   ]
+  },
+  {
+   "id": "he-y005",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.112,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-y007",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.397,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-z002",
+   "label": "scam",
+   "scam_type": "delivery",
+   "language": "he",
+   "score": 0.364,
+   "combined": "high",
+   "model_only": "low",
+   "rules_only": "high",
+   "signs": [
+    "small_fee",
+    "delivery_problem_link",
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-z004",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.623,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "small_fee"
+   ]
+  },
+  {
+   "id": "he-z008",
+   "label": "scam",
+   "scam_type": "account_security",
+   "language": "he",
+   "score": 0.73,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": [
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-z009",
+   "label": "scam",
+   "scam_type": "other",
+   "language": "he",
+   "score": 0.075,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-z011",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.161,
+   "combined": "medium",
+   "model_only": "low",
+   "rules_only": "medium",
+   "signs": [
+    "risky_domain_ending",
+    "shortened_link"
+   ]
+  },
+  {
+   "id": "he-z013",
+   "label": "legit",
+   "scam_type": "none",
+   "language": "he",
+   "score": 0.047,
+   "combined": "low",
+   "model_only": "low",
+   "rules_only": "low",
+   "signs": []
+  },
+  {
+   "id": "he-z016",
+   "label": "scam",
+   "scam_type": "government_impersonation",
+   "language": "he",
+   "score": 0.954,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "medium",
+   "signs": [
+    "payment_via_link"
+   ]
+  },
+  {
+   "id": "he-z019",
+   "label": "scam",
+   "scam_type": "bank_impersonation",
+   "language": "he",
+   "score": 0.995,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "medium",
+   "signs": [
+    "verify_details"
+   ]
+  },
+  {
+   "id": "he-z021",
+   "label": "scam",
+   "scam_type": "bank_impersonation",
+   "language": "he",
+   "score": 0.996,
+   "combined": "high",
+   "model_only": "high",
+   "rules_only": "medium",
+   "signs": [
+    "verify_details",
+    "threat"
+   ]
+  }
+ ]
+}
