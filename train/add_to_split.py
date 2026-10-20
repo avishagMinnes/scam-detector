@@ -37,6 +37,7 @@ SAME_TEMPLATE_AS = {
     "he-z007": "he-p081",                                # Highway 6 enforcement, reworded
     "he-z015": "he-z003",                                # Carmel Tunnels, same text as he-z006
     "he-z018": "he-z017",                                # Highway 6 'אזהרה' template
+    "he-z022": "he-z003",                                # same sender as he-z015 (ID tag)
 }
 
 
